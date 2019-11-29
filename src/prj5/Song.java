@@ -511,6 +511,10 @@ public class Song {
     }
     
     // calculate the percentages taking data from songList
+    /**
+     * calculates all the percentages
+     * for the song
+     */
     public void calculateAll() {
         hobbyHeardPercent = calcHobbyHeard();
         hobbyLikePercent = calcHobbyLike();
