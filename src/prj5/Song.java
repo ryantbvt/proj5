@@ -194,7 +194,6 @@ public class Song {
      * @return percentages
      */
     public int[] getHobbyHeardPercent() {
-        hobbyHeardPercent = this.calcHobbyHeard();
         return hobbyHeardPercent;
     }
     

@@ -106,4 +106,112 @@ public class SongTest extends TestCase {
         
         assertEquals(50, hobbyHeardPerc[0]);
     }
+    
+    /**
+     * test get hobbyLiked()
+     */
+    public void testGetHobbyLiked() {
+        int[][] test = song.getHobbyLiked();
+        
+        assertEquals(test, song.getHobbyLiked());
+    }
+    
+    /**
+     * test get hobbyHeard()
+     */
+    public void testGetHobbyHeard() {
+        int[][] test = song.getHobbyHeard();
+        
+        assertEquals(test, song.getHobbyHeard());
+    }
+    
+    /**
+     * test getRegionLike()
+     */
+    public void testGetRegionLiked() {
+        int[][] test = song.getRegionLiked();
+        
+        assertEquals(test, song.getRegionLiked());
+    }
+    
+    /**
+     * test get regionHeard()
+     */
+    public void testGetRegionHeard() {
+        int[][] test = song.getRegionHeard();
+        
+        assertEquals(test, song.getRegionHeard());
+    }
+    
+    /**
+     * test getMajorLiked()
+     */
+    public void testGetMajorLiked() {
+        int[][] test = song.getMajorLiked();
+        
+        assertEquals(test, song.getMajorLiked());
+    }
+    
+    /**
+     * test getMajorHeard()
+     */
+    public void testGetMajorHeard() {
+        int[][] test = song.getMajorHeard();
+        
+        assertEquals(test, song.getMajorHeard());
+    }
+    
+    /**
+     * test getHobbyLikePercent
+     */
+    public void testGetHobbyLikePercent() {
+        int[] test = song.getHobbyLikePercent();
+        
+        assertEquals(test, song.getHobbyLikePercent());
+    }
+    
+    /**
+     * test getHobbyHeardPercent
+     */
+    public void testGetHobbyHeardPercent() {
+        int[] test = song.getHobbyHeardPercent();
+        
+        assertEquals(test, song.getHobbyHeardPercent());
+    }
+    
+    /**
+     * test getRegionLikePercent
+     */
+    public void testGetRegionLikePercent() {
+        int[] test = song.getRegionLikePercent();
+        
+        assertEquals(test, song.getRegionLikePercent());
+    }
+    
+    /**
+     * test getRegionHeardPercent
+     */
+    public void testGetRegionHeardPercent() {
+        int[] test = song.getRegionHeardPercent();
+        
+        assertEquals(test, song.getRegionHeardPercent());
+    }
+    
+    /**
+     * test getMajorLikePercent
+     */
+    public void testGetMajorLikePercent() {
+        int[] test = song.getMajorLikePercent();
+        
+        assertEquals(test, song.getMajorLikePercent());
+    }
+    
+    /**
+     * test getMajorHeardPercent
+     */
+    public void testGetMajorHeardPercent() {
+        int[] test = song.getMajorHeardPercent();
+        
+        assertEquals(test, song.getMajorHeardPercent());
+    }
 }
