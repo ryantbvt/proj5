@@ -73,23 +73,37 @@ public class SongTest extends TestCase {
         
         assertEquals(1, majorHeard[0][1]);
         assertEquals(1, majorLike[0][0]);
+        
+        song.increment(student, 1, 0);
+        
+        assertEquals(2, majorHeard[0][1]);
     }
     
     /**
      * test calculate all method
      */
     public void testCalculateAll() {
-        for (int i = 0; i < 6; i++) {
-            Student student2 = 
-                    new Student("Read", "Southeast US", "CMDA");
-            Student student = 
-                    new Student("Art", "Northeast US", "Computer Science");
-            song.increment(student, 1, 1);
-            song.increment(student2, 1, 0);
-        }
+
+        Student student = new Student("Read", "NorthEast US", "Computer Science");
+        Student student2 = new Student("Art", "Southeast US", "Other Engineering");
+        Student student3 = new Student("Sport", "the rest of US", "Math or CMDA");
+        Student student4 = new Student("Music", "outside the US", "Other");
         
-        int regionHeardPerc[] = song.getHobbyHeardPercent();
+        song.increment(student, 1, 0);
+        song.increment(student, 0, 0);
         
-        assertEquals(1, regionHeardPerc[0]);
+        song.increment(student2, 1, 0);
+        song.increment(student2, 0, 0);
+        
+        song.increment(student3, 1, 0);
+        song.increment(student3, 0, 0);
+        
+        song.increment(student4, 1, 0);
+        song.increment(student4, 0, 0);
+        
+        song.calculateAll();
+        int hobbyHeardPerc[] = song.getHobbyHeardPercent();
+        
+        assertEquals(50, hobbyHeardPerc[0]);
     }
 }
