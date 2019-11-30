@@ -54,29 +54,29 @@ public class GUIWindow {
         
         createButtons();
         
-        // start textshape and pole -----------------------
-        // TEMP HARD CODE POLE
-        Shape temp1 = new Shape(125, 60,
-                10, 60, Color.BLACK);
-        window.addShape(temp1);
+//        // start textshape and pole -----------------------
+//        // TEMP HARD CODE POLE
+//        Shape temp1 = new Shape(125, 60,
+//                10, 60, Color.BLACK);
+//        window.addShape(temp1);
+//        
+//        // TEMP HARD CODE TEXTSHAPE
+//        TextShape topText = new TextShape(130, 10, "Song Title");
+//        TextShape bottomText = new TextShape(130, 30, "Artist Name");
+//        window.addShape(topText);
+//        window.addShape(bottomText);
+//        
+//        //center the TextShape, change it under for loop in the future
+//        centerText(topText, bottomText);
+//        // END TEXTSHAPE AND POLE -------------------------
         
-        // TEMP HARD CODE TEXTSHAPE
-        TextShape topText = new TextShape(130, 10, "Song Title");
-        TextShape bottomText = new TextShape(130, 30, "Artist Name");
-        window.addShape(topText);
-        window.addShape(bottomText);
+        //legend();
         
-        //center the TextShape, change it under for loop in the future
-        centerText(topText, bottomText);
-        // END TEXTSHAPE AND POLE -------------------------
+        //addLike();
         
-        legend();
+        //addHeard();
         
-        addLike();
-        
-        addHeard();
-        
-        //addGlyphs();
+        addGlyphs();
         
         //legend();
         
@@ -146,7 +146,6 @@ public class GUIWindow {
      * creates glyphs and adds them to certain areas
      */
     private void addGlyphs() {    
-        
         /**
          * the default glyph value (pole)
          * the the value to increment each glyph (pole)

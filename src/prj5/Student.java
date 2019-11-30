@@ -20,7 +20,6 @@ public class Student {
     //private int studentID; // maybe wont need
     private int[] responses;
     private int responseIndex;
-    private int responseSize;
     
     /**
      * constructor for student class
@@ -34,27 +33,7 @@ public class Student {
         this.region = region;
         this.major = major;
         responseIndex = 0;
-        responseSize = getResponseSize();
-        responses = new int[responseSize];
-    }
-    
-    /**
-     * the response size 
-     * @param size the number of responses
-     * @return the number of responses
-     */
-    public int setResponseSize(int size) {
-        responseSize = size;
-        return responseSize;
-    }
-    
-    /**
-     * get the response size
-     * 
-     * @return the response size
-     */
-    public int getResponseSize() {
-        return responseSize;
+        responses = new int[140];
     }
     
     /**

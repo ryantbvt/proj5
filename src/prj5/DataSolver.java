@@ -37,7 +37,7 @@ public class DataSolver {
      * @return the list of songs
      * @throws FileNotFoundException 
      */
-    public SongList readSongFile(String songFile) 
+    private SongList readSongFile(String songFile) 
             throws FileNotFoundException {
         SongList temp = new SongList();
         
@@ -64,7 +64,7 @@ public class DataSolver {
      * @return the list of students with hobby region major
      * @throws FileNotFoundException 
      */
-    public StudentList readDataFile(String dataFile)
+    private StudentList readDataFile(String dataFile)
             throws FileNotFoundException {
         StudentList temp = new StudentList();
         
@@ -82,10 +82,9 @@ public class DataSolver {
             String hobby = split[4];
             String region = split[3];
             Student student = new Student(hobby, region, major);
-            
-            student.setResponseSize(split.length);
             // adds the student's responses
             for (int i = 5; i < split.length; i++) {
+                
                 student.addResponse(split[i]);
             }
             

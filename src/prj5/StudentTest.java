@@ -49,4 +49,27 @@ public class StudentTest extends TestCase {
         assertEquals("Major: Comp Sci, Region: East Coast, Hobby: Art",
                 student.toString());
     }
+    
+    /**
+     * test getResponses method
+     */
+    public void testGetResponses() {
+        int[] responses = student.getResponses();
+        
+        assertEquals(responses, student.getResponses());
+    }
+    
+    /**
+     * test add responses method
+     */
+    public void testAddResponses() {
+        student.addResponse("Yes");
+        student.addResponse("No");
+        student.addResponse("");
+        int [] responses = student.getResponses();
+        
+        assertEquals(1, responses[0]);
+        assertEquals(0, responses[1]);
+        assertEquals(-1, responses[2]);
+    }
 }
