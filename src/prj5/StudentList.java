@@ -1,9 +1,11 @@
 package prj5;
 
 /**
- * 
- * @author Ryan Bui
+ * @author Ryan Bui (ryantb)
+ * @author Sean Le (sean2022)
+ * @author Christina Tran (christinatran)
  *
+ * @version 2019.11.27
  */
 public class StudentList extends SinglyLinkedList<Student> {
     // fields
@@ -25,16 +27,17 @@ public class StudentList extends SinglyLinkedList<Student> {
     public void loopData(SongList list) {
         // the size of the student list
         for (int i = 0; i < this.size(); i++) {
-            int[] data = this.get(i).getResponses(); // grabs students responses
             Student currentStudent = this.get(i); // grabs the student
-            
-            for (int j = 0; j < data.length; j += 2) {
+            int[] data = currentStudent.getResponses(); // grabs students responses
+
+            for (int j = 0; j < data.length; j += 2) { // loops through the data
                 // grabs heard and like
                 int heard = data[j];
                 int like = data[j + 1];
                 
-                // increments the list
+                // increments the list 
                 list.get(j / 2).increment(currentStudent, heard, like);
+
             } // loops through responses
         } // loops through students
     } // end loop data method
