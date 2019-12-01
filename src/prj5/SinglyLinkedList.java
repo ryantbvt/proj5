@@ -311,28 +311,6 @@ public class SinglyLinkedList<T> {
     }
 
     /**
-     * Returns an array representation of the list If a list contains A, B, and
-     * C, the following should be returned {A, B, C}, If a list contains A, B,
-     * C, and C the following should be returned {A, B, C, C}
-     *
-     * @return an array representing the list
-     */
-    public Object[] toArray() {
-
-        Object[] array = new Object[this.size()];
-
-        Node<T> current = head;
-        int count = 0;
-        while (current != null) {
-            array[count] = current.getData();
-            current = current.next;
-            count++;
-        }
-
-        return array;
-    }
-
-    /**
      * Returns true if both lists have the exact same contents in the exact same
      * order
      *

@@ -1,5 +1,7 @@
 package prj5;
 
+import java.util.Iterator;
+
 import student.TestCase;
 
 /**
@@ -223,5 +225,43 @@ public class SinglyLinkedListTest extends TestCase {
         test.add("hello");
         test.add("halloween");
         assertEquals("{hello, boo, hello, halloween}", test.toString());
+    }
+    
+    /**
+     * test the equals method
+     */
+    public void testEquals() {
+        test.add("test");
+        SinglyLinkedList<String> same = test;
+        SinglyLinkedList<String> same1 = new SinglyLinkedList<>();
+        same1.add("test");
+        SinglyLinkedList<String> notSame = new SinglyLinkedList<>();
+        notSame.add("test2");
+        SinglyLinkedList<String> diffSize = new SinglyLinkedList<>();
+        diffSize.add("1");
+        diffSize.add("2");
+        String notList = "";
+        SinglyLinkedList<String> nullList = null;
+        
+        assertTrue(test.equals(same));
+        assertTrue(test.equals(same1));
+        assertFalse(test.equals(notSame));
+        assertFalse(test.equals(nullList));
+        assertTrue(test.equals(test));
+        assertFalse(test.equals(notList));
+        assertFalse(test.equals(diffSize));
+    }
+    
+    /**
+     * test getIterator
+     */
+    public void testIterator() {
+        assertFalse(test.iterator().hasNext());
+        
+        test.add("A");
+        test.add("B");
+        test.add("C");
+        
+        assertTrue(test.iterator().hasNext());
     }
 }
