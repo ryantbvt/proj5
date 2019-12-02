@@ -1,7 +1,6 @@
 package prj5;
 
 import java.io.FileNotFoundException;
-import deque.EmptyQueueException;
 import student.TestCase;
 
 /**
@@ -29,7 +28,7 @@ public class DataSolverTest extends TestCase {
         }
     }
     
-    
+    //*
     public void testReadSongFile() {
         String nullFile = null;
         Exception exception = null;
