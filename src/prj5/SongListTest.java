@@ -26,8 +26,8 @@ public class SongListTest extends TestCase {
         //assertEquals(1, listTitle.toString());
         list.sort("title");
         assertEquals("{Title: A, Artist: A, Genre: A, Year: 1990, "
-                + "Title: A, Artist: A, Genre: A, Year: 1990, "
-                + "Title: A, Artist: A, Genre: A, Year: 1990}", list.toString());
+                + "Title: B, Artist: B, Genre: B, Year: 2000, "
+                + "Title: C, Artist: C, Genre: C, Year: 2010}", list.toString());
     }
     
     /**
@@ -46,8 +46,8 @@ public class SongListTest extends TestCase {
         //assertEquals(1, listTitle.toString());
         list.sort("artist");
         assertEquals("{Title: A, Artist: A, Genre: A, Year: 1990, "
-                + "Title: A, Artist: A, Genre: A, Year: 1990, "
-                + "Title: A, Artist: A, Genre: A, Year: 1990}", list.toString());
+                + "Title: B, Artist: B, Genre: B, Year: 2000, "
+                + "Title: C, Artist: C, Genre: C, Year: 2010}", list.toString());
     }
     
     /**
@@ -66,8 +66,8 @@ public class SongListTest extends TestCase {
         //assertEquals(1, listTitle.toString());
         list.sort("genre");
         assertEquals("{Title: A, Artist: A, Genre: A, Year: 1990, "
-                + "Title: A, Artist: A, Genre: A, Year: 1990, "
-                + "Title: A, Artist: A, Genre: A, Year: 1990}", list.toString());
+                + "Title: B, Artist: B, Genre: B, Year: 2000, "
+                + "Title: C, Artist: C, Genre: C, Year: 2010}", list.toString());
     }
     
     /**
@@ -86,7 +86,7 @@ public class SongListTest extends TestCase {
         //assertEquals(1, listTitle.toString());
         list.sort("year");
         assertEquals("{Title: A, Artist: A, Genre: A, Year: 1990, "
-                + "Title: A, Artist: A, Genre: A, Year: 1990, "
-                + "Title: A, Artist: A, Genre: A, Year: 1990}", list.toString());
+                + "Title: B, Artist: B, Genre: B, Year: 2000, "
+                + "Title: C, Artist: C, Genre: C, Year: 2010}", list.toString());
     }
 }
