@@ -4,6 +4,8 @@
 package prj5;
 
 /**
+ * Individual students
+ * 
  * @author Ryan Bui (ryantb)
  * @author Sean Le (sean2022)
  * @author Christina Tran (christinatran)

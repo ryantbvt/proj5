@@ -1,13 +1,14 @@
 package prj5;
 
-import java.util.Iterator;
-
 import prj5.SinglyLinkedList.Node;
 import student.TestCase;
 
 /**
+ * Test methods for singlylinkedlist
  * 
- * @author Ryan Bui
+ * @author Ryan Bui (ryantb)
+ * @author Sean Le (sean2022)
+ * @author Christina Tran (christinatran)
  * @version 2019.11.27
  */
 public class SinglyLinkedListTest extends TestCase {

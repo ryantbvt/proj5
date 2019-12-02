@@ -2,6 +2,15 @@ package prj5;
 
 import student.TestCase;
 
+/**
+ * test case for song list
+ * 
+ * @author Ryan Bui (ryantb)
+ * @author Sean Le (sean2022)
+ * @author Christina Tran (christinatran)
+ *
+ * @version 2019.11.27
+ */
 public class SongListTest extends TestCase {
     /**
      * setUp
