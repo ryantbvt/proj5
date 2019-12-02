@@ -145,9 +145,20 @@ public class SinglyLinkedListTest extends TestCase {
         catch (Exception e) {
             exception = e;
         }
+        
+        Exception exception1 = null;
+        try {
+            test.remove(-1);
+            fail("remove() is throwing an exception when it should");
+        }
+
+        catch (Exception e) {
+            exception1 = e;
+        }
 
         assertTrue("remove() is throwing the wrong type of exception", 
-                exception instanceof IndexOutOfBoundsException);
+                exception1 instanceof IndexOutOfBoundsException);
+        
         test.add("hello");
         test.add("boo");
         test.add("halloween");
