@@ -74,6 +74,11 @@ public class Student {
         return major;
     }
     
+    /**
+     * changes student to a string
+     * 
+     * @return the string of the student
+     */
     public String toString() {
         StringBuilder build = new StringBuilder();
         build.append("Major: " + getMajor());

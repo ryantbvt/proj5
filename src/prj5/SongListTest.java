@@ -36,7 +36,8 @@ public class SongListTest extends TestCase {
         list.sort("title");
         assertEquals("{Title: A, Artist: A, Genre: A, Year: 1990, "
                 + "Title: B, Artist: B, Genre: B, Year: 2000, "
-                + "Title: C, Artist: C, Genre: C, Year: 2010}", list.toString());
+                + "Title: C, Artist: C, Genre: C, Year: 2010}"
+                , list.toString());
     }
     
     /**
@@ -56,7 +57,8 @@ public class SongListTest extends TestCase {
         list.sort("artist");
         assertEquals("{Title: A, Artist: A, Genre: A, Year: 1990, "
                 + "Title: B, Artist: B, Genre: B, Year: 2000, "
-                + "Title: C, Artist: C, Genre: C, Year: 2010}", list.toString());
+                + "Title: C, Artist: C, Genre: C, Year: 2010}"
+                , list.toString());
     }
     
     /**
@@ -76,7 +78,8 @@ public class SongListTest extends TestCase {
         list.sort("genre");
         assertEquals("{Title: A, Artist: A, Genre: A, Year: 1990, "
                 + "Title: B, Artist: B, Genre: B, Year: 2000, "
-                + "Title: C, Artist: C, Genre: C, Year: 2010}", list.toString());
+                + "Title: C, Artist: C, Genre: C, Year: 2010}"
+                , list.toString());
     }
     
     /**
@@ -96,7 +99,8 @@ public class SongListTest extends TestCase {
         list.sort("year");
         assertEquals("{Title: A, Artist: A, Genre: A, Year: 1990, "
                 + "Title: B, Artist: B, Genre: B, Year: 2000, "
-                + "Title: C, Artist: C, Genre: C, Year: 2010}", list.toString());
+                + "Title: C, Artist: C, Genre: C, Year: 2010}"
+                , list.toString());
     }
     
     /**
@@ -116,6 +120,7 @@ public class SongListTest extends TestCase {
         list.sort("title");
         assertEquals("{Title: Animals, Artist: C, Genre: C, Year: 2010, "
                 + "Title: Day One, Artist: B, Genre: B, Year: 2000, "
-                + "Title: Roxanne, Artist: A, Genre: A, Year: 1990}", list.toString());
+                + "Title: Roxanne, Artist: A, Genre: A, Year: 1990}"
+                , list.toString());
     }
 }

@@ -23,6 +23,8 @@ public class DataSolver {
     
     /**
      * constructor
+     * @param songFile the song file it's reading
+     * @param dataFile the data file it's reading
      * @throws FileNotFoundException 
      */
     public DataSolver(String songFile, String dataFile) 
@@ -33,11 +35,11 @@ public class DataSolver {
     
     /**
      * reads the song files and puts it into a list
-     * @param the file being read
+     * @param songFile the file being read
      * @return the list of songs
      * @throws FileNotFoundException 
      */
-    private SongList readSongFile(String songFile) 
+    public SongList readSongFile(String songFile) 
             throws FileNotFoundException {
         SongList temp = new SongList();
         
@@ -64,7 +66,7 @@ public class DataSolver {
      * @return the list of students with hobby region major
      * @throws FileNotFoundException 
      */
-    private StudentList readDataFile(String dataFile)
+    public StudentList readDataFile(String dataFile)
             throws FileNotFoundException {
         StudentList temp = new StudentList();
         
@@ -98,14 +100,21 @@ public class DataSolver {
         return temp;
     } // end readDataFile
     
-    // loops data
     /**
-     * takes the student list and
-     * goes through the list
-     * updating the like and heard 
-     * in song
+     * gets the studentList
+     * 
+     * @return the studentList
      */
-    public void loop() {
-        studentList.loopData(songList);
+    public StudentList getStudentList() {
+        return studentList;
+    }
+    
+    /**
+     * gets the songList
+     * 
+     * @return the song list
+     */
+    public SongList getSongList() {
+        return songList;
     }
 }

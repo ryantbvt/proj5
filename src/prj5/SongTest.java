@@ -68,8 +68,8 @@ public class SongTest extends TestCase {
                 new Student("Art", "Northeast US", "Computer Science");
         song.increment(student, 1, 0);
         
-        int majorHeard[][] = song.getMajorHeard();
-        int majorLike[][] = song.getMajorLiked();
+        int[][] majorHeard = song.getMajorHeard();
+        int[][] majorLike = song.getMajorLiked();
         
         assertEquals(1, majorHeard[0][1]);
         assertEquals(1, majorLike[0][0]);
@@ -87,8 +87,10 @@ public class SongTest extends TestCase {
         Student student = new Student("Read", "NorthEast", "Computer Science");
         Student student2 = new Student("Art", "Southeast", "Other Engineering");
         Student student3 = 
-                new Student("Sport", "United States (other than Southeast or Northwest", "Math or CMDA");
-        Student student4 = new Student("Music", "Outside of United States", "Other");
+                new Student("Sport", "United States "
+                        + "(other than Southeast or Northwest", "Math or CMDA");
+        Student student4 = new Student("Music", ""
+                + "Outside of United States", "Other");
         
         song.increment(student, 1, 0);
         song.increment(student, 0, 0);
@@ -103,7 +105,7 @@ public class SongTest extends TestCase {
         song.increment(student4, 0, 0);
         
         song.calculateAll();
-        int hobbyHeardPerc[] = song.getHobbyHeardPercent();
+        int[] hobbyHeardPerc = song.getHobbyHeardPercent();
         
         assertEquals(50, hobbyHeardPerc[0]);
     }

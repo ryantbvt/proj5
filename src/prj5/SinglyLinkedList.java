@@ -58,7 +58,8 @@ public class SinglyLinkedList<T> {
      * @precondition obj can't be null
      * @param index where to add the object
      * @param obj   the object being added
-     * @throws IndexOutOfBoundsException if index is less than zero or greater than
+     * @throws IndexOutOfBoundsException if index is less 
+     *                                   than zero or greater than
      *                                   than the size
      * @throws IllegalArgumentException if the object is null
      */
@@ -189,7 +190,9 @@ public class SinglyLinkedList<T> {
             head = head.next;
             size--;
             return true;
-        } else {
+        } 
+        
+        else {
             Node<T> current = head;
             int currentIndex = 0;
 
@@ -345,6 +348,11 @@ public class SinglyLinkedList<T> {
         return false;
     }
     
+    /**
+     * The iterator for the list
+     * 
+     * @return a iterator class
+     */
     public Iterator<T> iterator() {
         return new ListIterator<T>();
     }
@@ -423,7 +431,7 @@ public class SinglyLinkedList<T> {
         /**
          * constructor
          * 
-         * @param data the data to put in the node
+         * @param d the data to put in the node
          */
         public Node(T d) {
             data = d;

@@ -28,7 +28,8 @@ public class StudentList extends SinglyLinkedList<Student> {
         // the size of the student list
         for (int i = 0; i < this.size(); i++) {
             Student currentStudent = this.get(i); // grabs the student
-            int[] data = currentStudent.getResponses(); // grabs students responses
+            int[] data = 
+                    currentStudent.getResponses(); // grabs students responses
 
             for (int j = 0; j < data.length; j += 2) { // loops through the data
                 // grabs heard and like
