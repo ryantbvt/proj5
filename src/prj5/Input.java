@@ -38,7 +38,9 @@ public class Input {
         else {
             dataSolver = 
                     new DataSolver("SongList2018HalfSongs.csv", "MusicSurveyData2018HolesHalf.csv");
-            GUIWindow display = new GUIWindow();
+            SongList list = dataSolver.readSongFile("SongList2018HalfSongs.csv");
+            System.out.println(list.toString());
+            //GUIWindow display = new GUIWindow();
         }
     }
 
