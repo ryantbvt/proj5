@@ -33,10 +33,6 @@ public class SinglyLinkedList<T> {
         head = null;
         size = 0;
     }
-
-    public Node<T> getFront() {
-        return head;
-    }
     
     /**
      * gets the size of the list
