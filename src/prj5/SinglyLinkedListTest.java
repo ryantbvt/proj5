@@ -2,6 +2,7 @@ package prj5;
 
 import java.util.Iterator;
 
+import prj5.SinglyLinkedList.Node;
 import student.TestCase;
 
 /**
@@ -263,5 +264,15 @@ public class SinglyLinkedListTest extends TestCase {
         test.add("C");
         
         assertTrue(test.iterator().hasNext());
+    }
+    
+    /**
+     * gets the head
+     */
+    public void testGetFront() {
+        test.add("A");
+        test.add("B");
+        
+        assertEquals("A", test.getFront().getData());
     }
 }

@@ -13,21 +13,21 @@ package prj5;
  * @version 2019.11.27
  */
 public class SongList extends SinglyLinkedList<Song> {
-    
+
     /**
      * constructor
      */
     public SongList() {
         // may not need?
     }
-    
+
     /**
      * sort method
      * @param type the sorting type 
      *        based on the button clicked
      */
     public void sort(String type) {
-        if (type.equals("sortByTitle")) {
+        if (type.equals("title")) {
             for (int i = 0; i < this.size(); i++) {
                 Song minTitleSong = this.get(i);
                 int minIndex = i;
@@ -35,7 +35,7 @@ public class SongList extends SinglyLinkedList<Song> {
                     Song song = this.get(j);
                     String songName = song.getTitle();
                     String minSongName = minTitleSong.getTitle();
-                    if (songName.compareTo(minSongName) <= 0) {
+                    if (songName.compareTo(minSongName) < 0) {
                         minSongName = songName;
                         minTitleSong = song;
                         minIndex = j;
@@ -47,7 +47,7 @@ public class SongList extends SinglyLinkedList<Song> {
             } // end for loop for every song
         } // end if statement for button clicked
         
-        else if (type.equals("sortByGenre")) {
+        else if (type.equals("genre")) {
             for (int i = 0; i < this.size(); i++) {
                 Song minTitleSong = this.get(i);
                 int minIndex = i;
@@ -67,7 +67,7 @@ public class SongList extends SinglyLinkedList<Song> {
             } // end for loop for every song
         } //end sort by genre
         
-        else if (type.equals("sortByArtist")) {
+        else if (type.equals("artist")) {
             for (int i = 0; i < this.size(); i++) {
                 Song minTitleSong = this.get(i);
                 int minIndex = i;
@@ -87,7 +87,7 @@ public class SongList extends SinglyLinkedList<Song> {
             } // end for loop for every song
         } //end sort by artist
         
-        else if (type.equals("sortByDate")) {
+        else if (type.equals("year")) {
             for (int i = 0; i < this.size(); i++) {
                 Song minTitleSong = this.get(i);
                 int minIndex = i;
