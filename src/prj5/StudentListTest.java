@@ -28,11 +28,11 @@ public class StudentListTest extends TestCase {
                 new Student("Read", "Northeast US", "Computer Science");
         
         for (int i = 0; i < 70; i++) {
-        student1.addResponse("Yes");
-        student1.addResponse("No");
+            student1.addResponse("Yes");
+            student1.addResponse("No");
         
-        student2.addResponse("No");
-        student2.addResponse("Yes");
+            student2.addResponse("No");
+            student2.addResponse("Yes");
         }
         
         studentList.add(student1);

@@ -265,14 +265,4 @@ public class SinglyLinkedListTest extends TestCase {
         
         assertTrue(test.iterator().hasNext());
     }
-    
-    /**
-     * gets the head
-     */
-    public void testGetFront() {
-        test.add("A");
-        test.add("B");
-        
-        assertEquals("A", test.getFront().getData());
-    }
 }

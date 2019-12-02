@@ -89,4 +89,24 @@ public class SongListTest extends TestCase {
                 + "Title: B, Artist: B, Genre: B, Year: 2000, "
                 + "Title: C, Artist: C, Genre: C, Year: 2010}", list.toString());
     }
+    
+    /**
+     * test sort method year
+     */
+    public void testSort5() {
+        SongList list = new SongList();
+        Song song1 = new Song("Roxanne", "A", "A", "1990");
+        Song song2 = new Song("Day One", "B", "B", "2000");
+        Song song3 = new Song("Animals", "C", "C", "2010");
+
+        list.add(song1);
+        list.add(song2);
+        list.add(song3);
+
+        //assertEquals(1, listTitle.toString());
+        list.sort("title");
+        assertEquals("{Title: Animals, Artist: C, Genre: C, Year: 2010, "
+                + "Title: Day One, Artist: B, Genre: B, Year: 2000, "
+                + "Title: Roxanne, Artist: A, Genre: A, Year: 1990}", list.toString());
+    }
 }
