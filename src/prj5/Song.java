@@ -455,7 +455,7 @@ public class Song {
             }
         }
         
-        else if (type.equals("CMDA")) {
+        else if (type.equals("Math or CMDA")) {
             if (heard == 1) {
                 majorHeard[2][1]++;
             } // checks yes or no
