@@ -338,7 +338,7 @@ public class Song {
      * @param like yes or no
      */
     private void incrementRegion(String type, int heard, int like) {
-        if (type.equals("Northeast US")) {
+        if (type.equals("Northeast")) {
             if (heard == 1) {
                 regionHeard[0][1]++;
             } // checks yes or no
@@ -356,7 +356,7 @@ public class Song {
             }
         } // checks what hobby
         
-        else if (type.equals("Southeast US")) {
+        else if (type.equals("Southeast")) {
             if (heard == 1) {
                 regionHeard[1][1]++;
             } // checks yes or no
@@ -374,7 +374,7 @@ public class Song {
             }
         }
         
-        else if (type.equals("the rest of the US")) {
+        else if (type.equals("United States (other than Southeast or Northwest")) {
             if (heard == 1) {
                 regionHeard[2][1]++;
             } // checks yes or no
@@ -392,7 +392,7 @@ public class Song {
             }
         }
         
-        else if (type.equals("outside the US")) {
+        else if (type.equals("Outside of United States")) {
             if (heard == 1) {
                 regionHeard[3][1]++;
             } // checks yes or no

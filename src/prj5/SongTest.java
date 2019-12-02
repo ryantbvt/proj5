@@ -84,10 +84,11 @@ public class SongTest extends TestCase {
      */
     public void testCalculateAll() {
 
-        Student student = new Student("Read", "NorthEast US", "Computer Science");
-        Student student2 = new Student("Art", "Southeast US", "Other Engineering");
-        Student student3 = new Student("Sport", "the rest of US", "Math or CMDA");
-        Student student4 = new Student("Music", "outside the US", "Other");
+        Student student = new Student("Read", "NorthEast", "Computer Science");
+        Student student2 = new Student("Art", "Southeast", "Other Engineering");
+        Student student3 = 
+                new Student("Sport", "United States (other than Southeast or Northwest", "Math or CMDA");
+        Student student4 = new Student("Music", "Outside of United States", "Other");
         
         song.increment(student, 1, 0);
         song.increment(student, 0, 0);
