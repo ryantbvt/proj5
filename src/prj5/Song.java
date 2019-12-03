@@ -97,9 +97,13 @@ public class Song {
     }
     
     public void printHobbyLiked() {
-        for(int i = 0; i < 4; i++)
-            for(int j = 0; j < 2; j++)
+        for(int i = 0; i < 4; i++) {
+            System.out.println();
+            for(int j = 0; j < 2; j++) {
                 System.out.println(hobbyLike[i][j]);
+            }
+        }
+        
     }
     
     /**
@@ -263,7 +267,7 @@ public class Song {
      */
     private void incrementHobby(String type, int heard, int like) {
         // incrementing the heard
-        if (type.equals("Read")) {
+        if (type.equals("reading")) {
             if (heard == 1) {
                 hobbyHeard[0][1]++;
             } // checks yes or no
@@ -281,7 +285,7 @@ public class Song {
             }
         } // checks what hobby
         
-        else if (type.equals("Art")) {
+        else if (type.equals("art")) {
             if (heard == 1) {
                 hobbyHeard[1][1]++;
             } // checks yes or no
@@ -299,7 +303,7 @@ public class Song {
             }
         }
         
-        else if (type.equals("Sports")) {
+        else if (type.equals("sports")) {
             if (heard == 1) {
                 hobbyHeard[2][1]++;
             } // checks yes or no
@@ -317,7 +321,7 @@ public class Song {
             }
         }
         
-        else if (type.equals("Music")) {
+        else if (type.equals("music")) {
             if (heard == 1) {
                 hobbyHeard[3][1]++;
             } // checks yes or no
