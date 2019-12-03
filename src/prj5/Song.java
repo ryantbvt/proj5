@@ -96,38 +96,8 @@ public class Song {
         return title;
     }
     
-    public void printHobby() {
-        System.out.println("heard");
-        for(int i=0; i<4;i++)
-            System.out.println(hobbyHeardPercent[i]);
-        
-        System.out.println("liked");
-        for(int i=0;i<4;i++)
-            System.out.println(hobbyLikePercent[i]);
-        
-    }
     
-    public void printRegion() {
-        System.out.println("heard");
-        for(int i=0; i<4;i++)
-            System.out.println(regionHeardPercent[i]);
-        
-        System.out.println("liked");
-        for(int i=0;i<4;i++)
-            System.out.println(regionLikePercent[i]);
-        
-    }
-    
-    public void printMajor() {
-        System.out.println("heard");
-        for(int i=0; i<4;i++)
-            System.out.println(majorHeardPercent[i]);
-        
-        System.out.println("liked");
-        for(int i=0;i<4;i++)
-            System.out.println(majorLikePercent[i]);
-        
-    }
+
     
     /**
      * gets the artist of the song

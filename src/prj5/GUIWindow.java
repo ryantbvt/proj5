@@ -88,6 +88,7 @@ public class GUIWindow {
         addTitlesandArtists();
         
         
+        
     }
 
     // Poles......................................................
@@ -261,27 +262,22 @@ public class GUIWindow {
         for (int col = 0; col < 3; col++) {
             for (int row = 0; row < 3; row++) {
                 Song song = list.get(topCornerIndex + currSong);
-                System.out.println(song.toString());
-                
                 int[] likeInfo; 
                 int[] heardInfo;
                 
                 if (representing.equals("major")) {
                     likeInfo = song.getMajorLikePercent();
                     heardInfo = song.getMajorHeardPercent();
-                    song.printMajor();
                 }
                 
                 else if (representing.equals("region")) {
                     likeInfo = song.getRegionLikePercent();
                     heardInfo = song.getRegionHeardPercent();
-                    song.printRegion();
                 }
                 
                 else {
                     likeInfo = song.getHobbyLikePercent();
                     heardInfo = song.getHobbyHeardPercent();
-                    song.printHobby();
                 }
                 
                 
@@ -501,15 +497,22 @@ public class GUIWindow {
     public void clickedQuit(Button quit) {
         System.exit(0);
     }
-
+    
+    /**
+     * shows the hobby information on glyphs
+     * @param hobbyButton is button to represent hobby
+     */
     public void clickedRepHobby(Button hobbyButton) {
         updateLegendText("hobby");
         representing = "hobby";
         removeSurveyInfo();
         addTempGlyphs();
-
     }
-
+    
+    /**
+     * shows the major information on glyphs
+     * @param majorButton is button to represent major
+     */
     public void clickedRepMajor(Button majorButton) {
         updateLegendText("major");
         representing = "major";
@@ -517,7 +520,11 @@ public class GUIWindow {
         addTempGlyphs();
         
     }
-
+    
+    /**
+     * shows the region information on glyphs
+     * @param regionButton is button to represent region
+     */
     public void clickedRepRegion(Button regionButton) {
         updateLegendText("region");
         representing = "region";
@@ -526,23 +533,20 @@ public class GUIWindow {
     }
 
     public void clickedPrev(Button prevButton) {
+        nextButton.enable();
         if (topCornerIndex >= 9) {
             topCornerIndex -= 9;
             removeSurveyInfo();
-            //refresh();
             updateTitles();
-           // updateArtists();
             updateBottom();
             addTempGlyphs();
         } 
         else if (topCornerIndex > 0 && topCornerIndex < 9) {
             topCornerIndex = 0;
-            //refresh();
             removeSurveyInfo();
             updateTitles();
             updateBottom();
             addTempGlyphs();
-            //updateArtists();
         }
         if (topCornerIndex == 0) {
             prevButton.disable();
@@ -556,28 +560,22 @@ public class GUIWindow {
     }
 
     public void clickedNext(Button nextButton) {
+        prevButton.enable();
         int size = solver.getSongList().size();
         int numSongsLeft = size - (topCornerIndex + 9);
         if (numSongsLeft >= 9) {
             topCornerIndex += 9;
-            //refresh();
             removeSurveyInfo();
             updateTitles();
             updateBottom();
             addTempGlyphs();
-            //updateArtists();
-
-            // TODO need if-statement to check if sorting by artist, song, year
-            // or genre
 
         } else if (numSongsLeft > 0 && numSongsLeft < 9) {
             topCornerIndex += numSongsLeft;
-            //refresh();
             removeSurveyInfo();
             updateTitles();
             updateBottom();
             addTempGlyphs();
-            //updateArtists();
         }
         numSongsLeft = size - (topCornerIndex + 9);
         if (numSongsLeft == 0) {
@@ -596,11 +594,11 @@ public class GUIWindow {
      */
     public void clickedSortArt(Button artButton) {
         solver.getSongList().sort("artist");
-        // refresh();
-        // removeSurveyInfo();
         updateTitles();
         updateArtists();
         sortType = "artist";
+        removeSurveyInfo();
+        addTempGlyphs();
     }
 
     /**
@@ -609,11 +607,12 @@ public class GUIWindow {
      */
     public void clickedSortTitle(Button titleButton) {
         solver.getSongList().sort("title");
-        // refresh();
-        // removeSurveyInfo();
         updateTitles();
         updateArtists();
         sortType = "title";
+        removeSurveyInfo();
+        addTempGlyphs();
+       
     }
 
     /**
@@ -622,11 +621,11 @@ public class GUIWindow {
      */
     public void clickedSortGenre(Button genreButton) {
         solver.getSongList().sort("genre");
-        // refresh();
-        // removeSurveyInfo();
         updateTitles();
         updateGenre();
         sortType = "genre";
+        removeSurveyInfo();
+        addTempGlyphs();
     }
     /**
      * Sorts the songs by year and displays on window
@@ -634,11 +633,11 @@ public class GUIWindow {
      */
     public void clickedSortYear(Button yearButton) {
         solver.getSongList().sort("year");
-        // refresh();
-        // removeSurveyInfo();
         updateTitles();
         updateYear();
         sortType = "year";
+        removeSurveyInfo();
+        addTempGlyphs();
     }
 
     // Other (helper) methods.....................................
