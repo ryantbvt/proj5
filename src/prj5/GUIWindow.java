@@ -393,23 +393,67 @@ public class GUIWindow {
 
     
     public void clickedPrev(Button button) {
+        if (topCornerIndex >= 9) {
+            topCornerIndex -= 9;
+            refresh();
+        }
+        else if (topCornerIndex > 0 && topCornerIndex < 9) {
+            topCornerIndex = 0;
+            refresh();
+        }
+        if (topCornerIndex == 0) {
+            prevButton.disable();
+        }
+        
+        
+        int size = solver.getSongList().size();
+        int numSongsLeft = size - (topCornerIndex + 9);
+        if (numSongsLeft > 0) {
+            nextButton.enable();
+        }
+    }
+    
+    public void clickedNext(Button button) {
+        int size = solver.getSongList().size();
+        int numSongsLeft = size - (topCornerIndex + 9);
+        if (numSongsLeft >= 9) {
+            topCornerIndex += 9;
+            refresh();
+        }
+        else if(numSongsLeft > 0 && numSongsLeft < 9) {
+            topCornerIndex += numSongsLeft;
+            refresh();
+        }
+        
+        if (numSongsLeft == 0) {
+            nextButton.disable();
+        }
+        
+        if (topCornerIndex > 0) {
+            prevButton.enable();
+        }
+ 
         
     }
     
     public void clickedSortArtist(Button button) {
         solver.getSongList().sort("artist");
+        refresh();
     }
     
     public void clickedSortTitle(Button button) {
         solver.getSongList().sort("title");
+        refresh();
     }
     
     public void clickedSortGenre(Button button) {
         solver.getSongList().sort("genre");
+        refresh();
     }
     
     public void clickedSortYear(Button button) {
         solver.getSongList().sort("year");
+        refresh();
     }
     
     public void refresh() {
