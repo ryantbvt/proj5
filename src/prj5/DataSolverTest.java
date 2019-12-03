@@ -45,9 +45,7 @@ public class DataSolverTest extends TestCase {
         assertTrue("removeBack() is throwing the wrong type" + " of exceptions",
             exception instanceof FileNotFoundException);
         
-        String correctToString = "{Title: Song Title, "
-                + "Artist: Artist, Genre: Genre, Year: "
-            + "Year, Title: Hotline Bling, "
+        String correctToString = "{Title: Hotline Bling, "
             + "Artist: Drake, Genre: R&B, Year: "
             + "2015, Title: Creep, Artist: Radiohead, Genre: Alternative, "
             + "Year: 1992, Title: All of Me,"

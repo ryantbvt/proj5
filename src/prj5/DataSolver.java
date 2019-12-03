@@ -49,6 +49,7 @@ public class DataSolver {
         
         Scanner songScanner = new Scanner(new File(songFile));
         
+        songScanner.nextLine();
         while (songScanner.hasNextLine()) {
             String line = songScanner.nextLine();
             String[] split = line.split(",");
