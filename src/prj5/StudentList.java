@@ -37,7 +37,7 @@ public class StudentList extends SinglyLinkedList<Student> {
                 int like = data[j + 1];
                 
                 // increments the list 
-                if(j / 2 < list.size()) {
+                if (j / 2 < list.size()) {
                     list.get(j / 2).increment(currentStudent, heard, like);
                 }
             } // loops through responses

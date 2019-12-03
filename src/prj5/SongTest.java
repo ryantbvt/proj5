@@ -84,7 +84,8 @@ public class SongTest extends TestCase {
      */
     public void testCalculateAll() {
 
-        Student student = new Student("reading", "NorthEast", "Computer Science");
+        Student student = 
+                new Student("reading", "NorthEast", "Computer Science");
         Student student2 = new Student("art", "Southeast", "Other Engineering");
         Student student3 = 
                 new Student("sports", "United States "
