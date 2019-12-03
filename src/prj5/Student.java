@@ -19,16 +19,19 @@ public class Student {
     private String hobby;
     private String region;
     private String major;
-    //private int studentID; // maybe wont need
+    // private int studentID; // maybe wont need
     private int[] responses;
     private int responseIndex;
-    
+
     /**
      * constructor for student class
      * 
-     * @param hobby the hobby the student has
-     * @param region the region the student is from
-     * @param major the major the student is in
+     * @param hobby
+     *            the hobby the student has
+     * @param region
+     *            the region the student is from
+     * @param major
+     *            the major the student is in
      */
     public Student(String hobby, String region, String major) {
         this.hobby = hobby;
@@ -37,7 +40,8 @@ public class Student {
         responseIndex = 0;
         responses = new int[140];
     }
-    
+
+
     /**
      * gets the responses
      * 
@@ -46,7 +50,8 @@ public class Student {
     public int[] getResponses() {
         return responses;
     }
-    
+
+
     /**
      * gets the hobby
      * 
@@ -55,7 +60,8 @@ public class Student {
     public String getHobby() {
         return hobby;
     }
-    
+
+
     /**
      * gets the region the student is from
      * 
@@ -64,7 +70,8 @@ public class Student {
     public String getRegion() {
         return region;
     }
-    
+
+
     /**
      * gets the major
      * 
@@ -73,7 +80,8 @@ public class Student {
     public String getMajor() {
         return major;
     }
-    
+
+
     /**
      * changes student to a string
      * 
@@ -84,29 +92,31 @@ public class Student {
         build.append("Major: " + getMajor());
         build.append(", Region: " + getRegion());
         build.append(", Hobby: " + getHobby());
-        
+
         return build.toString();
     }
-    
+
+
     /**
      * changes yes and no's to 1 and 0
      * for easier comparisons
      * 
-     * @param str the string from the array
+     * @param str
+     *            the string from the array
      */
     public void addResponse(String str) {
         if (str.equals("Yes")) {
             responses[responseIndex] = 1;
         }
-        
+
         else if (str.equals("No")) {
             responses[responseIndex] = 0;
         }
-        
+
         else {
             responses[responseIndex] = -1;
         }
-        
+
         responseIndex++;
     }
 }

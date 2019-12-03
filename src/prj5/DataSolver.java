@@ -2,6 +2,7 @@ package prj5;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -20,39 +21,45 @@ public class DataSolver {
      */
     private SongList songList;
     private StudentList studentList;
-    
+
     /**
      * constructor
-     * @param songFile the song file it's reading
-     * @param dataFile the data file it's reading
-     * @throws FileNotFoundException 
+     * 
+     * @param songFile
+     *            the song file it's reading
+     * @param dataFile
+     *            the data file it's reading
+     * @throws FileNotFoundException
      */
-    public DataSolver(String songFile, String dataFile) 
-            throws FileNotFoundException {
+    public DataSolver(String songFile, String dataFile)
+        throws FileNotFoundException {
         songList = readSongFile(songFile);
         studentList = readDataFile(dataFile);
         studentList.loopData(songList);
-        for(int i = 0; i < songList.size(); i++) {
-            songList.get(i).calculateAll();
+        Iterator<Song> itr = songList.iterator();
+        while(itr.hasNext()) {
+            itr.next().calculateAll();
         }
     }
-    
+
+
     /**
      * reads the song files and puts it into a list
-     * @param songFile the file being read
+     * 
+     * @param songFile
+     *            the file being read
      * @return the list of songs
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException
      */
-    public SongList readSongFile(String songFile) 
-            throws FileNotFoundException {
+    public SongList readSongFile(String songFile) throws FileNotFoundException {
         SongList temp = new SongList();
-        
+
         if (songFile == null) {
             throw new FileNotFoundException();
         }
-        
+
         Scanner songScanner = new Scanner(new File(songFile));
-        
+
         songScanner.nextLine();
         while (songScanner.hasNextLine()) {
             String line = songScanner.nextLine();
@@ -63,24 +70,26 @@ public class DataSolver {
         songScanner.close();
         return temp;
     }
-    
+
+
     /**
      * reads the data list with the students
      * 
-     * @param dataFile the file that's being read
+     * @param dataFile
+     *            the file that's being read
      * @return the list of students with hobby region major
-     * @throws FileNotFoundException 
+     * @throws FileNotFoundException
      */
     public StudentList readDataFile(String dataFile)
-            throws FileNotFoundException {
+        throws FileNotFoundException {
         StudentList temp = new StudentList();
-        
+
         if (dataFile == null) {
             throw new FileNotFoundException();
         }
-        
+
         Scanner dataScanner = new Scanner(new File(dataFile));
-        
+
         while (dataScanner.hasNextLine()) {
             String line = dataScanner.nextLine();
             String[] split = line.split(",");
@@ -91,20 +100,21 @@ public class DataSolver {
             Student student = new Student(hobby, region, major);
             // adds the student's responses
             for (int i = 5; i < split.length; i++) {
-                
+
                 student.addResponse(split[i]);
             }
-            
+
             // adds the student to the list if the student isn't null
             if (student != null) {
                 temp.add(student);
             }
         }
-        
+
         dataScanner.close();
         return temp;
     } // end readDataFile
-    
+
+
     /**
      * gets the studentList
      * 
@@ -113,7 +123,8 @@ public class DataSolver {
     public StudentList getStudentList() {
         return studentList;
     }
-    
+
+
     /**
      * gets the songList
      * 

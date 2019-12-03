@@ -19,6 +19,7 @@ public class SongListTest extends TestCase {
         // setup not needed
     }
 
+
     /**
      * test sort method
      */
@@ -32,14 +33,14 @@ public class SongListTest extends TestCase {
         list.add(song2);
         list.add(song3);
 
-        //assertEquals(1, listTitle.toString());
+        // assertEquals(1, listTitle.toString());
         list.sort("title");
         assertEquals("{Title: A, Artist: A, Genre: A, Year: 1990, "
-                + "Title: B, Artist: B, Genre: B, Year: 2000, "
-                + "Title: C, Artist: C, Genre: C, Year: 2010}"
-                , list.toString());
+            + "Title: B, Artist: B, Genre: B, Year: 2000, "
+            + "Title: C, Artist: C, Genre: C, Year: 2010}", list.toString());
     }
-    
+
+
     /**
      * test sort method artist
      */
@@ -53,14 +54,14 @@ public class SongListTest extends TestCase {
         list.add(song2);
         list.add(song3);
 
-        //assertEquals(1, listTitle.toString());
+        // assertEquals(1, listTitle.toString());
         list.sort("artist");
         assertEquals("{Title: A, Artist: A, Genre: A, Year: 1990, "
-                + "Title: B, Artist: B, Genre: B, Year: 2000, "
-                + "Title: C, Artist: C, Genre: C, Year: 2010}"
-                , list.toString());
+            + "Title: B, Artist: B, Genre: B, Year: 2000, "
+            + "Title: C, Artist: C, Genre: C, Year: 2010}", list.toString());
     }
-    
+
+
     /**
      * test sort method genre
      */
@@ -74,14 +75,14 @@ public class SongListTest extends TestCase {
         list.add(song2);
         list.add(song3);
 
-        //assertEquals(1, listTitle.toString());
+        // assertEquals(1, listTitle.toString());
         list.sort("genre");
         assertEquals("{Title: A, Artist: A, Genre: A, Year: 1990, "
-                + "Title: B, Artist: B, Genre: B, Year: 2000, "
-                + "Title: C, Artist: C, Genre: C, Year: 2010}"
-                , list.toString());
+            + "Title: B, Artist: B, Genre: B, Year: 2000, "
+            + "Title: C, Artist: C, Genre: C, Year: 2010}", list.toString());
     }
-    
+
+
     /**
      * test sort method year
      */
@@ -95,14 +96,14 @@ public class SongListTest extends TestCase {
         list.add(song2);
         list.add(song3);
 
-        //assertEquals(1, listTitle.toString());
+        // assertEquals(1, listTitle.toString());
         list.sort("year");
         assertEquals("{Title: A, Artist: A, Genre: A, Year: 1990, "
-                + "Title: B, Artist: B, Genre: B, Year: 2000, "
-                + "Title: C, Artist: C, Genre: C, Year: 2010}"
-                , list.toString());
+            + "Title: B, Artist: B, Genre: B, Year: 2000, "
+            + "Title: C, Artist: C, Genre: C, Year: 2010}", list.toString());
     }
-    
+
+
     /**
      * test sort method year
      */
@@ -116,11 +117,11 @@ public class SongListTest extends TestCase {
         list.add(song2);
         list.add(song3);
 
-        //assertEquals(1, listTitle.toString());
+        // assertEquals(1, listTitle.toString());
         list.sort("title");
         assertEquals("{Title: Animals, Artist: C, Genre: C, Year: 2010, "
-                + "Title: Day One, Artist: B, Genre: B, Year: 2000, "
-                + "Title: Roxanne, Artist: A, Genre: A, Year: 1990}"
-                , list.toString());
+            + "Title: Day One, Artist: B, Genre: B, Year: 2000, "
+            + "Title: Roxanne, Artist: A, Genre: A, Year: 1990}", list
+                .toString());
     }
 }

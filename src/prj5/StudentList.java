@@ -19,25 +19,27 @@ public class StudentList extends SinglyLinkedList<Student> {
         // may not need?
     }
 
+
     /**
      * loop data
      * 
-     * @param list the song list
+     * @param list
+     *            the song list
      */
     public void loopData(SongList list) {
         // the size of the student list
         for (int i = 0; i < this.size(); i++) {
             Student currentStudent = this.get(i); // grabs the student
-            int[] data = 
-                    currentStudent.getResponses(); // grabs students responses
+            int[] data = currentStudent.getResponses(); // grabs students
+                                                        // responses
 
             for (int j = 0; j < data.length; j += 2) { // loops through the data
                 // grabs heard and like
                 int heard = data[j];
                 int like = data[j + 1];
-                
-                // increments the list 
-                if(j / 2 < list.size()) {
+
+                // increments the list
+                if (j / 2 < list.size()) {
                     list.get(j / 2).increment(currentStudent, heard, like);
                 }
             } // loops through responses

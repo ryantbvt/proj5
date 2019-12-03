@@ -22,6 +22,7 @@ public class Input {
         // constructor not needed
     }
 
+
     /**
      * The main method It's the entry point of the java
      * 
@@ -29,13 +30,13 @@ public class Input {
      * @throws FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
-        DataSolver dataSolver = null;
         if (args.length == 2) {
             GUIWindow display = new GUIWindow(args[0], args[1]);
         }
 
         else {
-            GUIWindow display = new GUIWindow("SongList2018HalfSongs.csv", "MusicSurveyData2018HolesHalf.csv");
+            GUIWindow display = new GUIWindow("SongList2018HalfSongs.csv",
+                "MusicSurveyData2018HolesHalf.csv");
         }
     }
 

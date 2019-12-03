@@ -23,6 +23,7 @@ public class SinglyLinkedListTest extends TestCase {
         test = new SinglyLinkedList<>();
     }
 
+
     /**
      * test size method
      */
@@ -32,6 +33,7 @@ public class SinglyLinkedListTest extends TestCase {
         test.add("test");
         assertEquals(1, test.size());
     }
+
 
     /**
      * test add method with only two parameter
@@ -48,7 +50,7 @@ public class SinglyLinkedListTest extends TestCase {
         }
 
         assertTrue("add() is throwing the wrong type of exceptions",
-                exception instanceof IllegalArgumentException);
+            exception instanceof IllegalArgumentException);
 
         Exception exception1 = null;
         try {
@@ -60,9 +62,9 @@ public class SinglyLinkedListTest extends TestCase {
             exception1 = e;
         }
 
-        assertTrue("add() is throwing the wrong type of exceptions", 
-                exception1 instanceof IndexOutOfBoundsException);
-        
+        assertTrue("add() is throwing the wrong type of exceptions",
+            exception1 instanceof IndexOutOfBoundsException);
+
         Exception exception2 = null;
         try {
             test.add(-1, "word");
@@ -73,8 +75,8 @@ public class SinglyLinkedListTest extends TestCase {
             exception2 = e;
         }
 
-        assertTrue("add() is throwing the wrong type of exceptions", 
-                exception2 instanceof IndexOutOfBoundsException);
+        assertTrue("add() is throwing the wrong type of exceptions",
+            exception2 instanceof IndexOutOfBoundsException);
 
         assertEquals(0, test.size());
         test.add(0, "test");
@@ -84,6 +86,7 @@ public class SinglyLinkedListTest extends TestCase {
         assertEquals("test", test.get(1));
         assertEquals("{test2, test, wow}", test.toString());
     }
+
 
     /**
      * test add method with one parameter
@@ -99,13 +102,14 @@ public class SinglyLinkedListTest extends TestCase {
             exception = e;
         }
 
-        assertTrue("add() is throwing the wrong type of exceptions", 
-                exception instanceof IllegalArgumentException);
+        assertTrue("add() is throwing the wrong type of exceptions",
+            exception instanceof IllegalArgumentException);
 
         assertEquals(0, test.size());
         test.add("hello");
         assertEquals(1, test.size());
     }
+
 
     /**
      * is the isEmpty method
@@ -115,6 +119,7 @@ public class SinglyLinkedListTest extends TestCase {
         test.add("hallo");
         assertFalse(test.isEmpty());
     }
+
 
     /**
      * test remove method for a specific object
@@ -132,6 +137,7 @@ public class SinglyLinkedListTest extends TestCase {
         assertEquals("{}", test.toString());
     }
 
+
     /**
      * test remove method for a specific index
      */
@@ -145,10 +151,10 @@ public class SinglyLinkedListTest extends TestCase {
         catch (Exception e) {
             exception = e;
         }
-        
+
         assertTrue("remove() is throwing the wrong type of exception",
-                exception instanceof IndexOutOfBoundsException);
-        
+            exception instanceof IndexOutOfBoundsException);
+
         Exception exception1 = null;
         try {
             test.remove(-1);
@@ -159,9 +165,9 @@ public class SinglyLinkedListTest extends TestCase {
             exception1 = e;
         }
 
-        assertTrue("remove() is throwing the wrong type of exception", 
-                exception1 instanceof IndexOutOfBoundsException);
-        
+        assertTrue("remove() is throwing the wrong type of exception",
+            exception1 instanceof IndexOutOfBoundsException);
+
         test.add("hello");
         test.add("boo");
         test.add("halloween");
@@ -170,6 +176,7 @@ public class SinglyLinkedListTest extends TestCase {
         test.remove(1);
         assertEquals("{hello}", test.toString());
     }
+
 
     /**
      * test get method
@@ -185,8 +192,8 @@ public class SinglyLinkedListTest extends TestCase {
             exception = e;
         }
 
-        assertTrue("get() is throwing the wrong type of exception", 
-                exception instanceof IndexOutOfBoundsException);
+        assertTrue("get() is throwing the wrong type of exception",
+            exception instanceof IndexOutOfBoundsException);
 
         String testS = "hello";
         test.add(testS);
@@ -194,6 +201,7 @@ public class SinglyLinkedListTest extends TestCase {
 
         assertTrue(testS.equals(test.get(0)));
     }
+
 
     /**
      * test the contains method
@@ -206,6 +214,7 @@ public class SinglyLinkedListTest extends TestCase {
         assertFalse(test.contains("doesn't exist"));
     }
 
+
     /**
      * test clear method
      */
@@ -217,6 +226,7 @@ public class SinglyLinkedListTest extends TestCase {
         test.clear();
         assertEquals(0, test.size());
     }
+
 
     /**
      * test lastIndexOf method
@@ -231,6 +241,7 @@ public class SinglyLinkedListTest extends TestCase {
         assertEquals(-1, test.lastIndexOf("uwu"));
     }
 
+
     /**
      * test the toString method
      */
@@ -241,7 +252,8 @@ public class SinglyLinkedListTest extends TestCase {
         test.add("halloween");
         assertEquals("{hello, boo, hello, halloween}", test.toString());
     }
-    
+
+
     /**
      * test the equals method
      */
@@ -257,7 +269,7 @@ public class SinglyLinkedListTest extends TestCase {
         diffSize.add("2");
         String notList = "";
         SinglyLinkedList<String> nullList = null;
-        
+
         assertTrue(test.equals(same));
         assertTrue(test.equals(same1));
         assertFalse(test.equals(notSame));
@@ -266,17 +278,18 @@ public class SinglyLinkedListTest extends TestCase {
         assertFalse(test.equals(notList));
         assertFalse(test.equals(diffSize));
     }
-    
+
+
     /**
      * test getIterator
      */
     public void testIterator() {
         assertFalse(test.iterator().hasNext());
-        
+
         test.add("A");
         test.add("B");
         test.add("C");
-        
+
         assertTrue(test.iterator().hasNext());
     }
 }
