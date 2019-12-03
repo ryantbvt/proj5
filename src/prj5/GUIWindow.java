@@ -132,53 +132,7 @@ public class GUIWindow {
         window.addShape(poleR3C2);
 
 
-        int glyphWidth = 100;
-        int glyphHeight = 10; // public static final int
-        
-        SongList list = solver.getSongList();
-        
-        int currSong = 0;
-        // Temp hard code RIGHT glyph
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
-            Song song = list.get(topCornerIndex + currSong);
-            int[] likedInfo = song.getHobbyLikePercent();
-            int[] heardInfo = song.getHobbyHeardPercent();
-            System.out.println(song.toString());
-            song.printHobbyHeard();
-            
-            Shape glyph = new Shape(glyphX + row * 300, glyphY + col * 200, likedInfo[0], glyphHeight,
-                    Color.MAGENTA);
-            window.addShape(glyph);
-            Shape glyph2 = new Shape(glyphX + row * 300, glyphY + glyphHeight * 1 + col * 200, likedInfo[1],
-                    glyphHeight, Color.BLUE);
-            window.addShape(glyph2);
-            Shape glyph3 = new Shape(glyphX + row * 300, glyphY + glyphHeight * 2 + col * 200, likedInfo[2],
-                    glyphHeight, Color.ORANGE);
-            window.addShape(glyph3);
-            Shape glyph4 = new Shape(glyphX + row * 300, glyphY + glyphHeight * 3 + col * 200, likedInfo[3],
-                    glyphHeight, Color.GREEN);
-            window.addShape(glyph4);
-            
-            
-
-            // Temp hard code LEFT glyph
-            Shape glyph5 = new Shape(xPole - glyphWidth + row * 300 + heardInfo[0], glyphY + col * 200, glyphWidth,
-                    glyphHeight, Color.MAGENTA);
-            window.addShape(glyph5);
-            Shape glyph6 = new Shape(xPole - glyphWidth + row * 300 + heardInfo[1], glyphY + glyphHeight * 1 + col * 200,
-                    glyphWidth, glyphHeight, Color.BLUE);
-            window.addShape(glyph6);
-            Shape glyph7 = new Shape(xPole - glyphWidth + row * 300 + heardInfo[2], glyphY + glyphHeight * 2 + col * 200,
-                    glyphWidth, glyphHeight, Color.ORANGE);
-            window.addShape(glyph7);
-            Shape glyph8 = new Shape(xPole - glyphWidth + row * 300 + heardInfo[3], glyphY + glyphHeight * 3 + col * 200,
-                    glyphWidth, glyphHeight, Color.GREEN);
-            window.addShape(glyph8);
-            currSong++;
-            }
-        }
-        
+       
 
         Shape poleR3C3 = new Shape(xPole + incX * 2, yPole + incY * 2,
                 POLE_WIDTH, POLE_HEIGHT, Color.BLACK);
@@ -301,45 +255,48 @@ public class GUIWindow {
         SongList list = solver.getSongList();
         int currSong = 0;
         // Temp hard code RIGHT glyph
+       
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 Song song = list.get(topCornerIndex + currSong);
+                System.out.println(song.toString());
+                int[] likeInfo = song.getHobbyLikePercent();
                 int[] heardInfo = song.getHobbyHeardPercent();
-
+                song.printHobbyHeard();
                 Shape glyph = new Shape(glyphX + row * 300, glyphY + col * 200,
-                        heardInfo[0], glyphHeight, Color.MAGENTA);
+                        likeInfo[0], glyphHeight, Color.MAGENTA);
                 window.addShape(glyph);
                 Shape glyph2 = new Shape(glyphX + row * 300,
-                        glyphY + glyphHeight * 1 + col * 200, heardInfo[1],
+                        glyphY + glyphHeight * 1 + col * 200, likeInfo[1],
                         glyphHeight, Color.BLUE);
                 window.addShape(glyph2);
                 Shape glyph3 = new Shape(glyphX + row * 300,
-                        glyphY + glyphHeight * 2 + col * 200, heardInfo[2],
+                        glyphY + glyphHeight * 2 + col * 200, likeInfo[2],
                         glyphHeight, Color.ORANGE);
                 window.addShape(glyph3);
                 Shape glyph4 = new Shape(glyphX + row * 300,
-                        glyphY + glyphHeight * 3 + col * 200, heardInfo[3],
+                        glyphY + glyphHeight * 3 + col * 200, likeInfo[3],
                         glyphHeight, Color.GREEN);
                 window.addShape(glyph4);
 
                 // Temp hard code LEFT glyph
-                Shape glyph5 = new Shape(xPole - glyphWidth + row * 300,
-                        glyphY + col * 200, glyphWidth, glyphHeight,
+                Shape glyph5 = new Shape(xPole - glyphWidth + row * 300 + 100-heardInfo[0],
+                        glyphY + col * 200, heardInfo[0], glyphHeight,
                         Color.MAGENTA);
                 window.addShape(glyph5);
-                Shape glyph6 = new Shape(xPole - glyphWidth + row * 300,
-                        glyphY + glyphHeight * 1 + col * 200, glyphWidth,
+                Shape glyph6 = new Shape(xPole - glyphWidth + row * 300 + 100-heardInfo[1],
+                        glyphY + glyphHeight * 1 + col * 200, heardInfo[1],
                         glyphHeight, Color.BLUE);
                 window.addShape(glyph6);
-                Shape glyph7 = new Shape(xPole - glyphWidth + row * 300,
-                        glyphY + glyphHeight * 2 + col * 200, glyphWidth,
+                Shape glyph7 = new Shape(xPole - glyphWidth + row * 300 + 100 - heardInfo[2],
+                        glyphY + glyphHeight * 2 + col * 200, heardInfo[2],
                         glyphHeight, Color.ORANGE);
                 window.addShape(glyph7);
-                Shape glyph8 = new Shape(xPole - glyphWidth + row * 300,
-                        glyphY + glyphHeight * 3 + col * 200, glyphWidth,
+                Shape glyph8 = new Shape(xPole - glyphWidth + row * 300 + 100 - heardInfo[3],
+                        glyphY + glyphHeight * 3 + col * 200, heardInfo[3],
                         glyphHeight, Color.GREEN);
                 window.addShape(glyph8);
-
+                currSong++;
             }
         }
 
@@ -360,16 +317,17 @@ public class GUIWindow {
         int incY = 200;
 
         int i = 0;
+        SongList list = solver.getSongList();
         for (int col = 0; col < 3; col++) {
             for (int row = 0; row < 3; row++) {
-
+                
                 TextShape title = new TextShape(titleX + row * incX,
-                        titleY + col * incY, "song title");
+                        titleY + col * incY, list.get(topCornerIndex + i).getTitle());
                 titles[i] = title;
                 window.addShape(title);
 
                 TextShape artist = new TextShape(artistX + row * incX,
-                        artistY + col * incY, "artist name");
+                        artistY + col * incY, list.get(topCornerIndex + i).getArtist());
                 artists[i] = artist; // bottom info, need to change name
                 window.addShape(artist);
                 i++;
@@ -528,14 +486,17 @@ public class GUIWindow {
     public void clickedPrev(Button prevButton) {
         if (topCornerIndex >= 9) {
             topCornerIndex -= 9;
-            // refresh();
+            //refresh();
             updateTitles();
-            updateArtists();
-        } else if (topCornerIndex > 0 && topCornerIndex < 9) {
+           // updateArtists();
+            updateBottom();
+        } 
+        else if (topCornerIndex > 0 && topCornerIndex < 9) {
             topCornerIndex = 0;
-            // refresh();
+            //refresh();
             updateTitles();
-            updateArtists();
+            updateBottom();
+            //updateArtists();
         }
         if (topCornerIndex == 0) {
             prevButton.disable();
@@ -553,18 +514,21 @@ public class GUIWindow {
         int numSongsLeft = size - (topCornerIndex + 9);
         if (numSongsLeft >= 9) {
             topCornerIndex += 9;
-            // refresh();
+            //refresh();
             updateTitles();
-            updateArtists();
+            updateBottom();
+            addTempGlyphs();
+            //updateArtists();
 
             // TODO need if-statement to check if sorting by artist, song, year
             // or genre
 
         } else if (numSongsLeft > 0 && numSongsLeft < 9) {
             topCornerIndex += numSongsLeft;
-            // refresh();
+            //refresh();
             updateTitles();
-            updateArtists();
+            updateBottom();
+            //updateArtists();
         }
 
         if (numSongsLeft == 0) {
@@ -649,5 +613,7 @@ public class GUIWindow {
             heard[i].remove();
         }
     }
+    
+    
 
 }
