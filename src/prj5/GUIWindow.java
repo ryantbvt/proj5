@@ -81,6 +81,7 @@ public class GUIWindow {
         window.setTitle("Project");
         solver = new DataSolver(songFile, surveyFile);
         
+        
         topCornerIndex = 0; // saves the upper left corner index
         
         representing = "hobby";
@@ -178,13 +179,18 @@ public class GUIWindow {
 
         int glyphWidth = 100;
         int glyphHeight = 10; // public static final int
+        
         SongList list = solver.getSongList();
+        
         int currSong = 0;
         // Temp hard code RIGHT glyph
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
             Song song = list.get(topCornerIndex + currSong);
-            int[] heardInfo = song.getHobbyHeardPercent();
+            song.calculateAll();
+            int[] heardInfo = song.getHobbyLikePercent();
+            System.out.println(song.toString());
+            song.printHobbyLiked();
             
             Shape glyph = new Shape(glyphX + row * 300, glyphY + col * 200, heardInfo[0], glyphHeight,
                     Color.MAGENTA);
@@ -212,7 +218,7 @@ public class GUIWindow {
             Shape glyph8 = new Shape(xPole - glyphWidth + row * 300, glyphY + glyphHeight * 3 + col * 200,
                     glyphWidth, glyphHeight, Color.GREEN);
             window.addShape(glyph8);
-
+            currSong++;
             }
         }
         

@@ -4,8 +4,6 @@
 package prj5;
 
 /**
- * Individual songs
- * 
  * @author Ryan Bui (ryantb)
  * @author Sean Le (sean2022)
  * @author Christina Tran (christinatran)
@@ -44,12 +42,12 @@ public class Song {
      * Yes = 1
      * No = 0
      */
-    private int[][] hobbyLike;
-    private int[][] hobbyHeard;
-    private int[][] regionLike;
-    private int[][] regionHeard;
-    private int[][] majorLike;
-    private int[][] majorHeard;
+    private int hobbyLike[][];
+    private int hobbyHeard[][];
+    private int regionLike[][];
+    private int regionHeard[][];
+    private int majorLike[][];
+    private int majorHeard[][];
     
     // percentages of like and heard
     private int[] hobbyHeardPercent;
@@ -63,7 +61,6 @@ public class Song {
      * constructor of song class
      * 
      * @param title of the song
-     * @param artist the artist of the song
      * @param genre of the song
      * @param year when it was made
      */
@@ -97,6 +94,12 @@ public class Song {
      */
     public String getTitle() {
         return title;
+    }
+    
+    public void printHobbyLiked() {
+        for(int i = 0; i < 4; i++)
+            for(int j = 0; j < 2; j++)
+                System.out.println(hobbyLike[i][j]);
     }
     
     /**
@@ -242,8 +245,6 @@ public class Song {
     
     /**
      * convert song to 1 line of string
-     * 
-     * @return the string of the songs
      */
     public String toString() {
         return "Title: " + title + 
@@ -343,7 +344,7 @@ public class Song {
      * @param like yes or no
      */
     private void incrementRegion(String type, int heard, int like) {
-        if (type.equals("Northeast")) {
+        if (type.equals("Northeast US")) {
             if (heard == 1) {
                 regionHeard[0][1]++;
             } // checks yes or no
@@ -361,7 +362,7 @@ public class Song {
             }
         } // checks what hobby
         
-        else if (type.equals("Southeast")) {
+        else if (type.equals("Southeast US")) {
             if (heard == 1) {
                 regionHeard[1][1]++;
             } // checks yes or no
@@ -379,8 +380,7 @@ public class Song {
             }
         }
         
-        else if (type.equals("United States "
-                + "(other than Southeast or Northwest")) {
+        else if (type.equals("the rest of the US")) {
             if (heard == 1) {
                 regionHeard[2][1]++;
             } // checks yes or no
@@ -398,7 +398,7 @@ public class Song {
             }
         }
         
-        else if (type.equals("Outside of United States")) {
+        else if (type.equals("outside the US")) {
             if (heard == 1) {
                 regionHeard[3][1]++;
             } // checks yes or no
@@ -461,7 +461,7 @@ public class Song {
             }
         }
         
-        else if (type.equals("Math or CMDA")) {
+        else if (type.equals("CMDA")) {
             if (heard == 1) {
                 majorHeard[2][1]++;
             } // checks yes or no
@@ -537,20 +537,20 @@ public class Song {
      * @return the percentages of each cat
      */
     private int[] calcHobbyHeard() {
-        int[][] arr = this.getHobbyHeard();
+        int[][] hobbyHeard = this.getHobbyHeard();
         int[] hobbyPercent = new int[4]; // array of 4 cat
         
-        hobbyPercent[0] = (int)((double)(arr[0][1] 
-                / (double)(arr[0][0] + arr[0][1])) * 100);
+        hobbyPercent[0] = (int)((double)(hobbyHeard[0][1] 
+                / (double)(hobbyHeard[0][0] + hobbyHeard[0][1])) * 100);
         
-        hobbyPercent[1] = (int)((double)(arr[1][1] 
-                / (double)(arr[1][0] + arr[1][1])) * 100);
+        hobbyPercent[1] = (int)((double)(hobbyHeard[1][1] 
+                / (double)(hobbyHeard[1][0] + hobbyHeard[1][1])) * 100);
         
-        hobbyPercent[2] = (int)((double)(arr[2][1] 
-                / (double)(arr[2][0] + arr[2][1])) * 100);
+        hobbyPercent[2] = (int)((double)(hobbyHeard[2][1] 
+                / (double)(hobbyHeard[2][0] + hobbyHeard[2][1])) * 100);
         
-        hobbyPercent[3] = (int)((double)(arr[3][1] 
-                / (double)(arr[3][0] + arr[3][1])) * 100);
+        hobbyPercent[3] = (int)((double)(hobbyHeard[3][1] 
+                / (double)(hobbyHeard[3][0] + hobbyHeard[3][1])) * 100);
         
         return hobbyPercent;
     }
@@ -561,20 +561,20 @@ public class Song {
      * @return the percentages of each cat
      */
     private int[] calcHobbyLike() {
-        int[][] arr = this.getHobbyLiked();
+        int[][] hobbyLike = this.getHobbyLiked();
         int[] hobbyPercent = new int[4]; // array of 4 cat
         
-        hobbyPercent[0] = (int)((double)(arr[0][1] 
-                / (double)(arr[0][0] + arr[0][1])) * 100);
+        hobbyPercent[0] = (int)((double)(hobbyLike[0][1] 
+                / (double)(hobbyLike[0][0] + hobbyLike[0][1])) * 100);
         
-        hobbyPercent[1] = (int)((double)(arr[1][1] 
-                / (double)(arr[1][0] + arr[1][1])) * 100);
+        hobbyPercent[1] = (int)((double)(hobbyLike[1][1] 
+                / (double)(hobbyLike[1][0] + hobbyLike[1][1])) * 100);
         
-        hobbyPercent[2] = (int)((double)(arr[2][1] 
-                / (double)(arr[2][0] + arr[2][1])) * 100);
+        hobbyPercent[2] = (int)((double)(hobbyLike[2][1] 
+                / (double)(hobbyLike[2][0] + hobbyLike[2][1])) * 100);
         
-        hobbyPercent[3] = (int)((double)(arr[3][1] 
-                / (double)(arr[3][0] + arr[3][1])) * 100);
+        hobbyPercent[3] = (int)((double)(hobbyLike[3][1] 
+                / (double)(hobbyLike[3][0] + hobbyLike[3][1])) * 100);
         
         return hobbyPercent;
     }
@@ -585,20 +585,20 @@ public class Song {
      * @return the 4 cat and percentages
      */
     private int[] calcRegionHeard() {
-        int[][] arr = this.getRegionHeard();
+        int[][] regionHeard = this.getRegionHeard();
         int[] regionPercent = new int[4]; // array of 4 cat
         
-        regionPercent[0] = (int)((double)(arr[0][1] 
-                / (double)(arr[0][0] + arr[0][1])) * 100);
+        regionPercent[0] = (int)((double)(regionHeard[0][1] 
+                / (double)(regionHeard[0][0] + regionHeard[0][1])) * 100);
         
-        regionPercent[1] = (int)((double)(arr[1][1] 
-                / (double)(arr[1][0] + arr[1][1])) * 100);
+        regionPercent[1] = (int)((double)(regionHeard[1][1] 
+                / (double)(regionHeard[1][0] + regionHeard[1][1])) * 100);
         
-        regionPercent[2] = (int)((double)(arr[2][1] 
-                / (double)(arr[2][0] + arr[2][1])) * 100);
+        regionPercent[2] = (int)((double)(regionHeard[2][1] 
+                / (double)(regionHeard[2][0] + regionHeard[2][1])) * 100);
         
-        regionPercent[3] = (int)((double)(arr[3][1] 
-                / (double)(arr[3][0] + arr[3][1])) * 100);
+        regionPercent[3] = (int)((double)(regionHeard[3][1] 
+                / (double)(regionHeard[3][0] + regionHeard[3][1])) * 100);
         
         return regionPercent;
     }
@@ -609,20 +609,20 @@ public class Song {
      * @return the 4 cat and percentages
      */
     private int[] calcRegionLike() {
-        int[][] arr = this.getRegionLiked();
+        int[][] regionLike = this.getRegionLiked();
         int[] regionPercent = new int[4]; // array of 4 cat
         
-        regionPercent[0] = (int)((double)(arr[0][1] 
-                / (double)(arr[0][0] + arr[0][1])) * 100);
+        regionPercent[0] = (int)((double)(regionLike[0][1] 
+                / (double)(regionLike[0][0] + regionLike[0][1])) * 100);
         
-        regionPercent[1] = (int)((double)(arr[1][1] 
-                / (double)(arr[1][0] + arr[1][1])) * 100);
+        regionPercent[1] = (int)((double)(regionLike[1][1] 
+                / (double)(regionLike[1][0] + regionLike[1][1])) * 100);
         
-        regionPercent[2] = (int)((double)(arr[2][1] 
-                / (double)(arr[2][0] + arr[2][1])) * 100);
+        regionPercent[2] = (int)((double)(regionLike[2][1] 
+                / (double)(regionLike[2][0] + regionLike[2][1])) * 100);
         
-        regionPercent[3] = (int)((double)(arr[3][1] 
-                / (double)(arr[3][0] + arr[3][1])) * 100);
+        regionPercent[3] = (int)((double)(regionLike[3][1] 
+                / (double)(regionLike[3][0] + regionLike[3][1])) * 100);
         
         return regionPercent;
     }
@@ -633,20 +633,20 @@ public class Song {
      * @return the 4 cat and percentages
      */
     private int[] calcMajorHeard() {
-        int[][] arr = this.getMajorHeard();
+        int[][] majorHeard = this.getMajorHeard();
         int[] majorPercent = new int[4]; // array of 4 cat
         
-        majorPercent[0] = (int)((double)(arr[0][1] 
-                / (double)(arr[0][0] + arr[0][1])) * 100);
+        majorPercent[0] = (int)((double)(majorHeard[0][1] 
+                / (double)(majorHeard[0][0] + majorHeard[0][1])) * 100);
         
-        majorPercent[1] = (int)((double)(arr[1][1] 
-                / (double)(arr[1][0] + arr[1][1])) * 100);
+        majorPercent[1] = (int)((double)(majorHeard[1][1] 
+                / (double)(majorHeard[1][0] + majorHeard[1][1])) * 100);
         
-        majorPercent[2] = (int)((double)(arr[2][1] 
-                / (double)(arr[2][0] + arr[2][1])) * 100);
+        majorPercent[2] = (int)((double)(majorHeard[2][1] 
+                / (double)(majorHeard[2][0] + majorHeard[2][1])) * 100);
         
-        majorPercent[3] = (int)((double)(arr[3][1] 
-                / (double)(arr[3][0] + arr[3][1])) * 100);
+        majorPercent[3] = (int)((double)(majorHeard[3][1] 
+                / (double)(majorHeard[3][0] + majorHeard[3][1])) * 100);
         
         return majorPercent;
     }
@@ -657,20 +657,20 @@ public class Song {
      * @return the 4 cat and percentages
      */
     private int[] calcMajorLike() {
-        int[][] arr = this.getMajorLiked();
+        int[][] majorLike = this.getMajorLiked();
         int[] majorPercent = new int[4]; // array of 4 cat
         
-        majorPercent[0] = (int)((double)arr[0][1] 
-                / (double)(arr[0][0] + arr[0][1]) * 100);
+        majorPercent[0] = (int)((double)majorLike[0][1] 
+                / (double)(majorLike[0][0] + majorLike[0][1]) * 100);
         
-        majorPercent[1] = (int)((double)(arr[1][1] 
-                / (double)(arr[1][0] + arr[1][1])) * 100);
+        majorPercent[1] = (int)((double)(majorLike[1][1] 
+                / (double)(majorLike[1][0] + majorLike[1][1])) * 100);
         
-        majorPercent[2] = (int)((double)(arr[2][1] 
-                / (double)(arr[2][0] + arr[2][1])) * 100);
+        majorPercent[2] = (int)((double)(majorLike[2][1] 
+                / (double)(majorLike[2][0] + majorLike[2][1])) * 100);
         
-        majorPercent[3] = (int)((double)(arr[3][1] 
-                / (double)(arr[3][0] + arr[3][1])) * 100);
+        majorPercent[3] = (int)((double)(majorLike[3][1] 
+                / (double)(majorLike[3][0] + majorLike[3][1])) * 100);
         
         return majorPercent;
     }

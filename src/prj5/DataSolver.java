@@ -31,6 +31,7 @@ public class DataSolver {
             throws FileNotFoundException {
         songList = readSongFile(songFile);
         studentList = readDataFile(dataFile);
+        studentList.loopData(songList);
     }
     
     /**
