@@ -96,11 +96,11 @@ public class Song {
         return title;
     }
     
-    public void printHobbyLiked() {
+    public void printHobbyHeard() {
         for(int i = 0; i < 4; i++) {
             System.out.println();
             for(int j = 0; j < 2; j++) {
-                System.out.println(hobbyLike[i][j]);
+                System.out.print(hobbyHeard[i][j]+" ");
             }
         }
         

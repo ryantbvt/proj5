@@ -32,6 +32,9 @@ public class DataSolver {
         songList = readSongFile(songFile);
         studentList = readDataFile(dataFile);
         studentList.loopData(songList);
+        for(int i = 0; i < songList.size(); i++) {
+            songList.get(i).calculateAll();
+        }
     }
     
     /**

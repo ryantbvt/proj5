@@ -187,35 +187,37 @@ public class GUIWindow {
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
             Song song = list.get(topCornerIndex + currSong);
-            song.calculateAll();
-            int[] heardInfo = song.getHobbyLikePercent();
+            int[] likedInfo = song.getHobbyLikePercent();
+            int[] heardInfo = song.getHobbyHeardPercent();
             System.out.println(song.toString());
-            song.printHobbyLiked();
+            song.printHobbyHeard();
             
-            Shape glyph = new Shape(glyphX + row * 300, glyphY + col * 200, heardInfo[0], glyphHeight,
+            Shape glyph = new Shape(glyphX + row * 300, glyphY + col * 200, likedInfo[0], glyphHeight,
                     Color.MAGENTA);
             window.addShape(glyph);
-            Shape glyph2 = new Shape(glyphX + row * 300, glyphY + glyphHeight * 1 + col * 200, heardInfo[1],
+            Shape glyph2 = new Shape(glyphX + row * 300, glyphY + glyphHeight * 1 + col * 200, likedInfo[1],
                     glyphHeight, Color.BLUE);
             window.addShape(glyph2);
-            Shape glyph3 = new Shape(glyphX + row * 300, glyphY + glyphHeight * 2 + col * 200, heardInfo[2],
+            Shape glyph3 = new Shape(glyphX + row * 300, glyphY + glyphHeight * 2 + col * 200, likedInfo[2],
                     glyphHeight, Color.ORANGE);
             window.addShape(glyph3);
-            Shape glyph4 = new Shape(glyphX + row * 300, glyphY + glyphHeight * 3 + col * 200, heardInfo[3],
+            Shape glyph4 = new Shape(glyphX + row * 300, glyphY + glyphHeight * 3 + col * 200, likedInfo[3],
                     glyphHeight, Color.GREEN);
             window.addShape(glyph4);
+            
+            
 
             // Temp hard code LEFT glyph
-            Shape glyph5 = new Shape(xPole - glyphWidth + row * 300, glyphY + col * 200, glyphWidth,
+            Shape glyph5 = new Shape(xPole - glyphWidth + row * 300 + heardInfo[0], glyphY + col * 200, glyphWidth,
                     glyphHeight, Color.MAGENTA);
             window.addShape(glyph5);
-            Shape glyph6 = new Shape(xPole - glyphWidth + row * 300, glyphY + glyphHeight * 1 + col * 200,
+            Shape glyph6 = new Shape(xPole - glyphWidth + row * 300 + heardInfo[1], glyphY + glyphHeight * 1 + col * 200,
                     glyphWidth, glyphHeight, Color.BLUE);
             window.addShape(glyph6);
-            Shape glyph7 = new Shape(xPole - glyphWidth + row * 300, glyphY + glyphHeight * 2 + col * 200,
+            Shape glyph7 = new Shape(xPole - glyphWidth + row * 300 + heardInfo[2], glyphY + glyphHeight * 2 + col * 200,
                     glyphWidth, glyphHeight, Color.ORANGE);
             window.addShape(glyph7);
-            Shape glyph8 = new Shape(xPole - glyphWidth + row * 300, glyphY + glyphHeight * 3 + col * 200,
+            Shape glyph8 = new Shape(xPole - glyphWidth + row * 300 + heardInfo[3], glyphY + glyphHeight * 3 + col * 200,
                     glyphWidth, glyphHeight, Color.GREEN);
             window.addShape(glyph8);
             currSong++;
