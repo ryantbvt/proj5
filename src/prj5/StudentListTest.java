@@ -23,9 +23,9 @@ public class StudentListTest extends TestCase {
         StudentList studentList = new StudentList();
         
         Student student1 = 
-                new Student("Read", "Northeast", "Computer Science");
+                new Student("reading", "Northeast", "Computer Science");
         Student student2 = 
-                new Student("Read", "Northeast", "Computer Science");
+                new Student("reading", "Northeast", "Computer Science");
         
         for (int i = 0; i < 70; i++) {
             student1.addResponse("Yes");
