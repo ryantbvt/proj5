@@ -6,6 +6,7 @@ import CS2114.Shape;
 import CS2114.Window;
 import CS2114.WindowSide;
 import java.awt.Color;
+import java.io.FileNotFoundException;
 
 /**
  * The window for the program
@@ -38,6 +39,9 @@ public class GUIWindow {
     private Button repHobby;
     private Button repMajor;
     private Button repRegion;
+    private int topCornerIndex;
+    private DataSolver solver;
+    private String representing;
     // ADD LINKED LIST
     
     
@@ -48,10 +52,12 @@ public class GUIWindow {
      * TODO add param to link the list to window
      * @param list singly linked list
      */
-    public GUIWindow() {
+    public GUIWindow(String songFile, String surveyFile) throws FileNotFoundException{
         window = new Window();
         window.setTitle("Project");
-        
+        solver = new DataSolver(songFile, surveyFile);
+        topCornerSongIndex = 0;
+        representing = "hobby";
         createButtons();
         
 //        // start textshape and pole -----------------------
@@ -379,5 +385,37 @@ public class GUIWindow {
      */
     public void clickedQuit(Button quit) {
         System.exit(0);
+    }
+    
+    public void clickedPrev(Button button) {
+        
+    }
+    
+    public void clickedSortArtist(Button button) {
+        solver.getSongList().sort("artist");
+    }
+    
+    public void clickedSortTitle(Button button) {
+        solver.getSongList().sort("title");
+    }
+    
+    public void clickedSortGenre(Button button) {
+        solver.getSongList().sort("genre");
+    }
+    
+    public void clickedSortYear(Button button) {
+        solver.getSongList().sort("year");
+    }
+    
+    public void refresh() {
+        if (representing.equals("hobby")) {
+            
+        }
+    }
+    
+    public void updateTitles() {
+        for (int i = 0; i < titles.length; i++) {
+            titles[i].setText(topCornerIndex);
+        }
     }
 }

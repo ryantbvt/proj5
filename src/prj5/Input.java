@@ -31,16 +31,11 @@ public class Input {
     public static void main(String[] args) throws FileNotFoundException {
         DataSolver dataSolver = null;
         if (args.length == 2) {
-            dataSolver = new DataSolver(args[0], args[1]);
-            GUIWindow display = new GUIWindow();
+            GUIWindow display = new GUIWindow(args[0], args[1]);
         }
 
         else {
-            dataSolver = 
-                    new DataSolver("SongList2018HalfSongs.csv", "MusicSurveyData2018HolesHalf.csv");
-            SongList list = dataSolver.readSongFile("SongList2018HalfSongs.csv");
-            System.out.println(list.toString());
-            //GUIWindow display = new GUIWindow();
+            GUIWindow display = new GUIWindow("SongList2018HalfSongs.csv", "MusicSurveyData2018HolesHalf.csv");
         }
     }
 
