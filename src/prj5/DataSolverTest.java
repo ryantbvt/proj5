@@ -113,6 +113,7 @@ public class DataSolverTest extends TestCase {
         try {
             SongList list = solver.readSongFile("SongList2018HalfSongs.csv");
             assertEquals(correctToString, list.toString());
+            assertEquals(34, list.size());
         }
         catch (FileNotFoundException e) {
             
@@ -177,6 +178,9 @@ public class DataSolverTest extends TestCase {
             SongList list 
                 = solver.readSongFile("SongList2018HalfSongs.csv");
             assertEquals(solver.getSongList().toString(), list.toString());
+            solver.getSongList().sort("artist");
+            assertEquals(34, solver.getSongList().size());
+            //assertEquals(solver.getSongList().toString(), "");
         } 
         
         catch (FileNotFoundException e) {

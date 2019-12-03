@@ -55,7 +55,7 @@ public class SongList extends SinglyLinkedList<Song> {
                     Song song = this.get(j);
                     String songName = song.getGenre();
                     String minSongName = minTitleSong.getGenre();
-                    if (songName.compareTo(minSongName) <= 0) {
+                    if (songName.compareTo(minSongName) < 0) {
                         minSongName = songName;
                         minTitleSong = song;
                         minIndex = j;
@@ -73,10 +73,10 @@ public class SongList extends SinglyLinkedList<Song> {
                 int minIndex = i;
                 for (int j = i; j < this.size(); j++) {
                     Song song = this.get(j);
-                    String songName = song.getArtist();
+                    String songArtist = song.getArtist();
                     String minSongName = minTitleSong.getArtist();
-                    if (songName.compareTo(minSongName) <= 0) {
-                        minSongName = songName;
+                    if (songArtist.compareTo(minSongName) < 0) {
+                        minSongName = songArtist;
                         minTitleSong = song;
                         minIndex = j;
                     } // end if compare to word
@@ -95,7 +95,7 @@ public class SongList extends SinglyLinkedList<Song> {
                     Song song = this.get(j);
                     String songName = song.getYear();
                     String minSongName = minTitleSong.getYear();
-                    if (songName.compareTo(minSongName) <= 0) {
+                    if (songName.compareTo(minSongName) < 0) {
                         minSongName = songName;
                         minTitleSong = song;
                         minIndex = j;

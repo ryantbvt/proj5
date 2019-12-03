@@ -99,7 +99,6 @@ public class SinglyLinkedList<T> {
                         Node<T> newNode = new Node<T>(obj);
                         current.setNext(newNode);
                         newNode.setNext(nextNext);
-                        return;
                     } //end if 
                     
                     current = current.next;
