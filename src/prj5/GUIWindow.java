@@ -77,6 +77,8 @@ public class GUIWindow {
         solver = new DataSolver(songFile, surveyFile);
         topCornerIndex = 0;
         representing = "hobby";
+        likes = new Shape[36];
+        heard = new Shape[36];
 
         window.setTitle("Project 5");
 
@@ -167,35 +169,44 @@ public class GUIWindow {
 
         int glyphWidth = 100;
         int glyphHeight = 10; // public static final int
-
+        SongList list = solver.getSongList();
+        int currSong = 0;
         // Temp hard code RIGHT glyph
-        Shape glyph = new Shape(glyphX, glyphY, glyphWidth, glyphHeight,
-                Color.MAGENTA);
-        window.addShape(glyph);
-        Shape glyph2 = new Shape(glyphX, glyphY + glyphHeight * 1, glyphWidth,
-                glyphHeight, Color.BLUE);
-        window.addShape(glyph2);
-        Shape glyph3 = new Shape(glyphX, glyphY + glyphHeight * 2, glyphWidth,
-                glyphHeight, Color.ORANGE);
-        window.addShape(glyph3);
-        Shape glyph4 = new Shape(glyphX, glyphY + glyphHeight * 3, glyphWidth,
-                glyphHeight, Color.GREEN);
-        window.addShape(glyph4);
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+            Song song = list.get(topCornerIndex + currSong);
+            int[] heardInfo = song.getHobbyHeardPercent();
+            
+            Shape glyph = new Shape(glyphX + row * 300, glyphY + col * 200, heardInfo[0], glyphHeight,
+                    Color.MAGENTA);
+            window.addShape(glyph);
+            Shape glyph2 = new Shape(glyphX + row * 300, glyphY + glyphHeight * 1 + col * 200, heardInfo[1],
+                    glyphHeight, Color.BLUE);
+            window.addShape(glyph2);
+            Shape glyph3 = new Shape(glyphX + row * 300, glyphY + glyphHeight * 2 + col * 200, heardInfo[2],
+                    glyphHeight, Color.ORANGE);
+            window.addShape(glyph3);
+            Shape glyph4 = new Shape(glyphX + row * 300, glyphY + glyphHeight * 3 + col * 200, heardInfo[3],
+                    glyphHeight, Color.GREEN);
+            window.addShape(glyph4);
 
-        // Temp hard code LEFT glyph
-        Shape glyph5 = new Shape(xPole - glyphWidth, glyphY, glyphWidth,
-                glyphHeight, Color.MAGENTA);
-        window.addShape(glyph5);
-        Shape glyph6 = new Shape(xPole - glyphWidth, glyphY + glyphHeight * 1,
-                glyphWidth, glyphHeight, Color.BLUE);
-        window.addShape(glyph6);
-        Shape glyph7 = new Shape(xPole - glyphWidth, glyphY + glyphHeight * 2,
-                glyphWidth, glyphHeight, Color.ORANGE);
-        window.addShape(glyph7);
-        Shape glyph8 = new Shape(xPole - glyphWidth, glyphY + glyphHeight * 3,
-                glyphWidth, glyphHeight, Color.GREEN);
-        window.addShape(glyph8);
+            // Temp hard code LEFT glyph
+            Shape glyph5 = new Shape(xPole - glyphWidth + row * 300, glyphY + col * 200, glyphWidth,
+                    glyphHeight, Color.MAGENTA);
+            window.addShape(glyph5);
+            Shape glyph6 = new Shape(xPole - glyphWidth + row * 300, glyphY + glyphHeight * 1 + col * 200,
+                    glyphWidth, glyphHeight, Color.BLUE);
+            window.addShape(glyph6);
+            Shape glyph7 = new Shape(xPole - glyphWidth + row * 300, glyphY + glyphHeight * 2 + col * 200,
+                    glyphWidth, glyphHeight, Color.ORANGE);
+            window.addShape(glyph7);
+            Shape glyph8 = new Shape(xPole - glyphWidth + row * 300, glyphY + glyphHeight * 3 + col * 200,
+                    glyphWidth, glyphHeight, Color.GREEN);
+            window.addShape(glyph8);
 
+            }
+        }
+        
     }
 
     public void addLegend() {
@@ -398,14 +409,32 @@ public class GUIWindow {
     }
     
     public void refresh() {
+        removeSurveyInfo();
         if (representing.equals("hobby")) {
-            
+            for (int i = 0; i < 36; i++) {
+        
+            }
+        }
+    }
+    
+    public void removeSurveyInfo() {
+        for (int i = 0; i < 36; i++) {
+            likes[i].remove();
+            heard[i].remove();
         }
     }
     
     public void updateTitles() {
+        SongList list = solver.getSongList();
         for (int i = 0; i < titles.length; i++) {
-            //titles[i].setText(topCornerIndex);
+            titles[i].setText(list.get(topCornerIndex + i).getTitle());
+        }
+    }
+    
+    public void updateArtists() {
+        SongList list = solver.getSongList();
+        for (int i = 0; i < titles.length; i++) {
+            titles[i].setText(list.get(topCornerIndex + i).getArtist());
         }
     }
 
