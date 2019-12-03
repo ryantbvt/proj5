@@ -56,7 +56,7 @@ public class GUIWindow {
         window = new Window();
         window.setTitle("Project");
         solver = new DataSolver(songFile, surveyFile);
-        topCornerSongIndex = 0;
+        topCornerIndex = 0;
         representing = "hobby";
         createButtons();
         
@@ -415,7 +415,7 @@ public class GUIWindow {
     
     public void updateTitles() {
         for (int i = 0; i < titles.length; i++) {
-            titles[i].setText(topCornerIndex);
+            //titles[i].setText(topCornerIndex);
         }
     }
 }
