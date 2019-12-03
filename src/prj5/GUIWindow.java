@@ -58,6 +58,7 @@ public class GUIWindow {
     private TextShape category4;
 
     private String sortType;
+    private String representing;
 
     // Constructor................................................
     /**
@@ -73,6 +74,7 @@ public class GUIWindow {
         titles = new TextShape[9];
         artists = new TextShape[9];
         sortType = "song";
+        representing = "hobby";
         likes = new Shape[36];
         heard = new Shape[36];
         
@@ -260,9 +262,29 @@ public class GUIWindow {
             for (int row = 0; row < 3; row++) {
                 Song song = list.get(topCornerIndex + currSong);
                 System.out.println(song.toString());
-                int[] likeInfo = song.getHobbyLikePercent();
-                int[] heardInfo = song.getHobbyHeardPercent();
-                song.printHobbyHeard();
+                
+                int[] likeInfo; 
+                int[] heardInfo;
+                
+                if (representing.equals("major")) {
+                    likeInfo = song.getMajorLikePercent();
+                    heardInfo = song.getMajorHeardPercent();
+                    song.printMajor();
+                }
+                
+                else if (representing.equals("region")) {
+                    likeInfo = song.getRegionLikePercent();
+                    heardInfo = song.getRegionHeardPercent();
+                    song.printRegion();
+                }
+                
+                else {
+                    likeInfo = song.getHobbyLikePercent();
+                    heardInfo = song.getHobbyHeardPercent();
+                    song.printHobby();
+                }
+                
+                
                 Shape glyph = new Shape(glyphX + row * 300, glyphY + col * 200,
                         likeInfo[0], glyphHeight, Color.MAGENTA);
                 likes[numGlyph] = glyph;
@@ -481,15 +503,25 @@ public class GUIWindow {
 
     public void clickedRepHobby(Button hobbyButton) {
         updateLegendText("hobby");
+        representing = "hobby";
+        removeSurveyInfo();
+        addTempGlyphs();
 
     }
 
     public void clickedRepMajor(Button majorButton) {
         updateLegendText("major");
+        representing = "major";
+        removeSurveyInfo();
+        addTempGlyphs();
+        
     }
 
     public void clickedRepRegion(Button regionButton) {
         updateLegendText("region");
+        representing = "region";
+        removeSurveyInfo();
+        addTempGlyphs();
     }
 
     public void clickedPrev(Button prevButton) {
