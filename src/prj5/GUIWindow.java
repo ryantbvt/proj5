@@ -647,7 +647,7 @@ public class GUIWindow {
         solver.getSongList().sort("title");
         updateTitles();
         updateArtists();
-        sortType = "title";
+        sortType = "song";
         removeSurveyInfo();
         addGlyphs();
 
@@ -687,7 +687,7 @@ public class GUIWindow {
 
 
     /**
-     * TODO removes the glyphs from the window
+     * removes the glyphs from the window
      */
     public void removeSurveyInfo() {
         for (int i = 0; i < 36; i++) {

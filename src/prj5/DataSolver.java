@@ -2,6 +2,7 @@ package prj5;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -32,8 +33,14 @@ public class DataSolver {
         songList = readSongFile(songFile);
         studentList = readDataFile(dataFile);
         studentList.loopData(songList);
-        for (int i = 0; i < songList.size(); i++) {
-            songList.get(i).calculateAll();
+//        for (int i = 0; i < songList.size(); i++) {
+//            songList.get(i).calculateAll();
+//        }
+        
+        Iterator<Song> itr = songList.iterator();
+        while (itr.hasNext()) {
+            Song song = itr.next();
+            song.calculateAll();
         }
     }
     

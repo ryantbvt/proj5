@@ -394,7 +394,7 @@ public class SinglyLinkedList<T> {
                 return false;
             }
             
-            return node.next() != null;
+            return node != null;
         }
 
         @Override
