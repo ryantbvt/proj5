@@ -176,7 +176,7 @@ public class GUIWindow {
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
             Song song = list.get(topCornerIndex + currSong);
-            int[] heardInfo = song.getHobbyHeardPercent();
+            int[] heardInfo = song.getHobbyLikePercent();
             System.out.println(heardInfo[0]);
             System.out.println(heardInfo[1]);
             System.out.println(heardInfo[2]);
@@ -414,11 +414,9 @@ public class GUIWindow {
     
     public void refresh() {
         removeSurveyInfo();
-        if (representing.equals("hobby")) {
-            for (int i = 0; i < 36; i++) {
-        
-            }
-        }
+        updateTitles();
+        updateArtists();
+        addTempGlyphs();
     }
     
     public void removeSurveyInfo() {
