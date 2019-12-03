@@ -474,6 +474,7 @@ public class GUIWindow {
 
         // previous button
         prevButton = new Button("Prev");
+        prevButton.disable();
         prevButton.onClick(this, "clickedPrev");
 
         // add north side buttons
@@ -578,7 +579,7 @@ public class GUIWindow {
             addTempGlyphs();
             //updateArtists();
         }
-
+        numSongsLeft = size - (topCornerIndex + 9);
         if (numSongsLeft == 0) {
             nextButton.disable();
         }
