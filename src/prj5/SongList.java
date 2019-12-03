@@ -21,10 +21,13 @@ public class SongList extends SinglyLinkedList<Song> {
         // may not need?
     }
 
+
     /**
      * sort method
-     * @param type the sorting type 
-     *        based on the button clicked
+     * 
+     * @param type
+     *            the sorting type
+     *            based on the button clicked
      */
     public void sort(String type) {
         if (type.equals("title")) {
@@ -41,12 +44,12 @@ public class SongList extends SinglyLinkedList<Song> {
                         minIndex = j;
                     } // end if compare to word
                 } // looks for the next song that should be in front
-                //swaps the songs
+                  // swaps the songs
                 this.remove(minIndex);
                 this.add(i, minTitleSong);
             } // end for loop for every song
         } // end if statement for button clicked
-        
+
         else if (type.equals("genre")) {
             for (int i = 0; i < this.size(); i++) {
                 Song minTitleSong = this.get(i);
@@ -61,12 +64,12 @@ public class SongList extends SinglyLinkedList<Song> {
                         minIndex = j;
                     } // end if compare to word
                 } // looks for the next song that should be in front
-                //swaps the songs
+                  // swaps the songs
                 this.remove(minIndex);
                 this.add(i, minTitleSong);
             } // end for loop for every song
-        } //end sort by genre
-        
+        } // end sort by genre
+
         else if (type.equals("artist")) {
             for (int i = 0; i < this.size(); i++) {
                 Song minTitleSong = this.get(i);
@@ -81,12 +84,12 @@ public class SongList extends SinglyLinkedList<Song> {
                         minIndex = j;
                     } // end if compare to word
                 } // looks for the next song that should be in front
-                //swaps the songs
+                  // swaps the songs
                 this.remove(minIndex);
                 this.add(i, minTitleSong);
             } // end for loop for every song
-        } //end sort by artist
-        
+        } // end sort by artist
+
         else if (type.equals("year")) {
             for (int i = 0; i < this.size(); i++) {
                 Song minTitleSong = this.get(i);
@@ -101,11 +104,11 @@ public class SongList extends SinglyLinkedList<Song> {
                         minIndex = j;
                     } // end if compare to word
                 } // looks for the next song that should be in front
-                //swaps the songs
+                  // swaps the songs
                 this.remove(minIndex);
                 this.add(i, minTitleSong);
             } // end for loop for every song
-        } //end sort by year
-    } //end sort method
-    //test push
+        } // end sort by year
+    } // end sort method
+      // test push
 }

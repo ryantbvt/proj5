@@ -65,31 +65,30 @@ public class GUIWindow {
      * Creates a new GUIWindow Object
      */
     public GUIWindow(String songFile, String surveyFile)
-            throws FileNotFoundException {
+        throws FileNotFoundException {
         window = new Window();
         window.setTitle("Project 5");
-        
+
         solver = new DataSolver(songFile, surveyFile);
-        
+
         titles = new TextShape[9];
         artists = new TextShape[9];
         sortType = "song";
         representing = "hobby";
         likes = new Shape[36];
         heard = new Shape[36];
-        
+
         topCornerIndex = 0;
-        
+
         createButtons();
         addPoles();
-        addTempGlyphs();
+        addGlyphs();
         createLegendText();
         createLegendBox();
         addTitlesandArtists();
-        
-        
-        
+
     }
+
 
     // Poles......................................................
     /**
@@ -103,45 +102,43 @@ public class GUIWindow {
 
         // row 1
         Shape poleR1C1 = new Shape(xPole, yPole, POLE_WIDTH, POLE_HEIGHT,
-                Color.BLACK);
+            Color.BLACK);
         window.addShape(poleR1C1);
 
         Shape poleR1C2 = new Shape(xPole + incX * 1, yPole, POLE_WIDTH,
-                POLE_HEIGHT, Color.BLACK);
+            POLE_HEIGHT, Color.BLACK);
         window.addShape(poleR1C2);
 
         Shape poleR1C3 = new Shape(xPole + incX * 2, yPole, POLE_WIDTH,
-                POLE_HEIGHT, Color.BLACK);
+            POLE_HEIGHT, Color.BLACK);
         window.addShape(poleR1C3);
         // row 2
         Shape poleR2C1 = new Shape(xPole, yPole + incY * 1, POLE_WIDTH,
-                POLE_HEIGHT, Color.BLACK);
+            POLE_HEIGHT, Color.BLACK);
         window.addShape(poleR2C1);
 
         Shape poleR2C2 = new Shape(xPole + incX * 1, yPole + incY * 1,
-                POLE_WIDTH, POLE_HEIGHT, Color.BLACK);
+            POLE_WIDTH, POLE_HEIGHT, Color.BLACK);
         window.addShape(poleR2C2);
 
         Shape poleR2C3 = new Shape(xPole + incX * 2, yPole + incY * 1,
-                POLE_WIDTH, POLE_HEIGHT, Color.BLACK);
+            POLE_WIDTH, POLE_HEIGHT, Color.BLACK);
         window.addShape(poleR2C3);
         // row 3
         Shape poleR3C1 = new Shape(xPole, yPole + incY * 2, POLE_WIDTH,
-                POLE_HEIGHT, Color.BLACK);
+            POLE_HEIGHT, Color.BLACK);
         window.addShape(poleR3C1);
 
         Shape poleR3C2 = new Shape(xPole + incX * 1, yPole + incY * 2,
-                POLE_WIDTH, POLE_HEIGHT, Color.BLACK);
+            POLE_WIDTH, POLE_HEIGHT, Color.BLACK);
         window.addShape(poleR3C2);
 
-
-       
-
         Shape poleR3C3 = new Shape(xPole + incX * 2, yPole + incY * 2,
-                POLE_WIDTH, POLE_HEIGHT, Color.BLACK);
+            POLE_WIDTH, POLE_HEIGHT, Color.BLACK);
         window.addShape(poleR3C3);
 
     }
+
 
     // Legend.....................................................
     /**
@@ -158,7 +155,7 @@ public class GUIWindow {
         TextShape like = new TextShape(x + 90, y + 175, "Likes");
         TextShape songTitle = new TextShape(x + 25, y + 150, "Song Title");
         Shape pole = new Shape(x + boxWidth / 2, y + 175, POLE_WIDTH,
-                POLE_HEIGHT, Color.BLACK);
+            POLE_HEIGHT, Color.BLACK);
         window.addShape(heard);
         window.addShape(like);
         window.addShape(pole);
@@ -173,6 +170,7 @@ public class GUIWindow {
         box.setBackgroundColor(Color.WHITE);
         songTitle.setBackgroundColor(Color.WHITE);
     }
+
 
     /**
      * Creates the default text for the legend
@@ -211,10 +209,12 @@ public class GUIWindow {
         window.addShape(category4);
     }
 
+
     /**
      * Updates the text in the legend based on survey category
      * 
-     * @param String "category" will either be: "hobby", "major", or "region"
+     * @param String
+     *            "category" will either be: "hobby", "major", or "region"
      */
     public void updateLegendText(String category) {
         if (category == "hobby") {
@@ -241,11 +241,12 @@ public class GUIWindow {
         }
     }
 
+
     // Glyphs.....................................................
     /**
      * TODO adding glyphs
      */
-    public void addTempGlyphs() {
+    public void addGlyphs() {
 
         int xPole = 125;
         int yPole = 50;
@@ -262,72 +263,72 @@ public class GUIWindow {
         for (int col = 0; col < 3; col++) {
             for (int row = 0; row < 3; row++) {
                 Song song = list.get(topCornerIndex + currSong);
-                int[] likeInfo; 
+                int[] likeInfo;
                 int[] heardInfo;
-                
+
                 if (representing.equals("major")) {
                     likeInfo = song.getMajorLikePercent();
                     heardInfo = song.getMajorHeardPercent();
                 }
-                
+
                 else if (representing.equals("region")) {
                     likeInfo = song.getRegionLikePercent();
                     heardInfo = song.getRegionHeardPercent();
                 }
-                
+
                 else {
                     likeInfo = song.getHobbyLikePercent();
                     heardInfo = song.getHobbyHeardPercent();
                 }
-                
-                
+
                 Shape glyph = new Shape(glyphX + row * 300, glyphY + col * 200,
-                        likeInfo[0], glyphHeight, Color.MAGENTA);
+                    likeInfo[0], glyphHeight, Color.MAGENTA);
                 likes[numGlyph] = glyph;
                 window.addShape(glyph);
-                Shape glyph2 = new Shape(glyphX + row * 300,
-                        glyphY + glyphHeight * 1 + col * 200, likeInfo[1],
-                        glyphHeight, Color.BLUE);
+                Shape glyph2 = new Shape(glyphX + row * 300, glyphY
+                    + glyphHeight * 1 + col * 200, likeInfo[1], glyphHeight,
+                    Color.BLUE);
                 likes[numGlyph + 1] = glyph2;
                 window.addShape(glyph2);
-                Shape glyph3 = new Shape(glyphX + row * 300,
-                        glyphY + glyphHeight * 2 + col * 200, likeInfo[2],
-                        glyphHeight, Color.ORANGE);
+                Shape glyph3 = new Shape(glyphX + row * 300, glyphY
+                    + glyphHeight * 2 + col * 200, likeInfo[2], glyphHeight,
+                    Color.ORANGE);
                 likes[numGlyph + 2] = glyph3;
                 window.addShape(glyph3);
-                Shape glyph4 = new Shape(glyphX + row * 300,
-                        glyphY + glyphHeight * 3 + col * 200, likeInfo[3],
-                        glyphHeight, Color.GREEN);
+                Shape glyph4 = new Shape(glyphX + row * 300, glyphY
+                    + glyphHeight * 3 + col * 200, likeInfo[3], glyphHeight,
+                    Color.GREEN);
                 likes[numGlyph + 3] = glyph4;
                 window.addShape(glyph4);
 
                 // Temp hard code LEFT glyph
-                Shape glyph5 = new Shape(xPole - glyphWidth + row * 300 + 100-heardInfo[0],
-                        glyphY + col * 200, heardInfo[0], glyphHeight,
-                        Color.MAGENTA);
+                Shape glyph5 = new Shape(xPole - glyphWidth + row * 300 + 100
+                    - heardInfo[0], glyphY + col * 200, heardInfo[0],
+                    glyphHeight, Color.MAGENTA);
                 heard[numGlyph] = glyph5;
                 window.addShape(glyph5);
-                Shape glyph6 = new Shape(xPole - glyphWidth + row * 300 + 100-heardInfo[1],
-                        glyphY + glyphHeight * 1 + col * 200, heardInfo[1],
-                        glyphHeight, Color.BLUE);
+                Shape glyph6 = new Shape(xPole - glyphWidth + row * 300 + 100
+                    - heardInfo[1], glyphY + glyphHeight * 1 + col * 200,
+                    heardInfo[1], glyphHeight, Color.BLUE);
                 heard[numGlyph + 1] = glyph6;
                 window.addShape(glyph6);
-                Shape glyph7 = new Shape(xPole - glyphWidth + row * 300 + 100 - heardInfo[2],
-                        glyphY + glyphHeight * 2 + col * 200, heardInfo[2],
-                        glyphHeight, Color.ORANGE);
+                Shape glyph7 = new Shape(xPole - glyphWidth + row * 300 + 100
+                    - heardInfo[2], glyphY + glyphHeight * 2 + col * 200,
+                    heardInfo[2], glyphHeight, Color.ORANGE);
                 heard[numGlyph + 2] = glyph7;
                 window.addShape(glyph7);
-                Shape glyph8 = new Shape(xPole - glyphWidth + row * 300 + 100 - heardInfo[3],
-                        glyphY + glyphHeight * 3 + col * 200, heardInfo[3],
-                        glyphHeight, Color.GREEN);
+                Shape glyph8 = new Shape(xPole - glyphWidth + row * 300 + 100
+                    - heardInfo[3], glyphY + glyphHeight * 3 + col * 200,
+                    heardInfo[3], glyphHeight, Color.GREEN);
                 heard[numGlyph + 3] = glyph8;
                 window.addShape(glyph8);
                 currSong++;
-                numGlyph+=4;
+                numGlyph += 4;
             }
         }
 
     }
+
 
     // Song Titles & Artist Names................................
     /**
@@ -347,14 +348,14 @@ public class GUIWindow {
         SongList list = solver.getSongList();
         for (int col = 0; col < 3; col++) {
             for (int row = 0; row < 3; row++) {
-                
-                TextShape title = new TextShape(titleX + row * incX,
-                        titleY + col * incY, list.get(topCornerIndex + i).getTitle());
+
+                TextShape title = new TextShape(titleX + row * incX, titleY
+                    + col * incY, list.get(topCornerIndex + i).getTitle());
                 titles[i] = title;
                 window.addShape(title);
 
-                TextShape artist = new TextShape(artistX + row * incX,
-                        artistY + col * incY, list.get(topCornerIndex + i).getArtist());
+                TextShape artist = new TextShape(artistX + row * incX, artistY
+                    + col * incY, list.get(topCornerIndex + i).getArtist());
                 artists[i] = artist; // bottom info, need to change name
                 window.addShape(artist);
                 i++;
@@ -368,6 +369,7 @@ public class GUIWindow {
     }
 
     // Updating Song Title & Artists names by sorting method...........
+
 
     /**
      * Updates the bottom row of info below the song title
@@ -384,7 +386,8 @@ public class GUIWindow {
         if (sortType == "genre")
             updateGenre();
     }
-    
+
+
     /**
      * updates the song titles
      */
@@ -394,6 +397,7 @@ public class GUIWindow {
             titles[i].setText(list.get(topCornerIndex + i).getTitle());
         }
     }
+
 
     /**
      * updates the artist name
@@ -405,6 +409,7 @@ public class GUIWindow {
         }
     }
 
+
     /**
      * Updates the year the song was created
      */
@@ -414,6 +419,7 @@ public class GUIWindow {
             artists[i].setText(list.get(topCornerIndex + i).getYear());
         }
     }
+
 
     /**
      * updates the genre of the song
@@ -488,50 +494,69 @@ public class GUIWindow {
         window.addButton(quitButton, WindowSide.SOUTH);
     }
 
+
     // Clicked Button Functions...................................
     /**
      * Quit button, when clicked, closes the window
      * 
-     * @param quit the clickable button
+     * @param quit
+     *            the clickable button
      */
     public void clickedQuit(Button quit) {
         System.exit(0);
     }
-    
+
+
     /**
      * shows the hobby information on glyphs
-     * @param hobbyButton is button to represent hobby
+     * 
+     * @param hobbyButton
+     *            is button to represent hobby
      */
     public void clickedRepHobby(Button hobbyButton) {
         updateLegendText("hobby");
         representing = "hobby";
         removeSurveyInfo();
-        addTempGlyphs();
+        addGlyphs();
     }
-    
+
+
     /**
      * shows the major information on glyphs
-     * @param majorButton is button to represent major
+     * 
+     * @param majorButton
+     *            is button to represent major
      */
     public void clickedRepMajor(Button majorButton) {
         updateLegendText("major");
         representing = "major";
         removeSurveyInfo();
-        addTempGlyphs();
-        
+        addGlyphs();
+
     }
-    
+
+
     /**
      * shows the region information on glyphs
-     * @param regionButton is button to represent region
+     * 
+     * @param regionButton
+     *            is button to represent region
      */
     public void clickedRepRegion(Button regionButton) {
         updateLegendText("region");
         representing = "region";
         removeSurveyInfo();
-        addTempGlyphs();
+        addGlyphs();
     }
 
+
+    /**
+     * Method to execute after previous button
+     * has been clicked to display new info on glyphs
+     * 
+     * @param prevButton
+     *            is the "prev" button
+     */
     public void clickedPrev(Button prevButton) {
         nextButton.enable();
         if (topCornerIndex >= 9) {
@@ -539,14 +564,14 @@ public class GUIWindow {
             removeSurveyInfo();
             updateTitles();
             updateBottom();
-            addTempGlyphs();
-        } 
+            addGlyphs();
+        }
         else if (topCornerIndex > 0 && topCornerIndex < 9) {
             topCornerIndex = 0;
             removeSurveyInfo();
             updateTitles();
             updateBottom();
-            addTempGlyphs();
+            addGlyphs();
         }
         if (topCornerIndex == 0) {
             prevButton.disable();
@@ -559,6 +584,14 @@ public class GUIWindow {
         }
     }
 
+
+    /**
+     * Method to execute after next button has been clicked
+     * to display new information on glyphs
+     * 
+     * @param nextButton
+     *            is the "next" button
+     */
     public void clickedNext(Button nextButton) {
         prevButton.enable();
         int size = solver.getSongList().size();
@@ -568,14 +601,15 @@ public class GUIWindow {
             removeSurveyInfo();
             updateTitles();
             updateBottom();
-            addTempGlyphs();
+            addGlyphs();
 
-        } else if (numSongsLeft > 0 && numSongsLeft < 9) {
+        }
+        else if (numSongsLeft > 0 && numSongsLeft < 9) {
             topCornerIndex += numSongsLeft;
             removeSurveyInfo();
             updateTitles();
             updateBottom();
-            addTempGlyphs();
+            addGlyphs();
         }
         numSongsLeft = size - (topCornerIndex + 9);
         if (numSongsLeft == 0) {
@@ -588,8 +622,10 @@ public class GUIWindow {
 
     }
 
+
     /**
      * Sorts the songs by artist name and displays on window
+     * 
      * @param artButton
      */
     public void clickedSortArt(Button artButton) {
@@ -598,11 +634,13 @@ public class GUIWindow {
         updateArtists();
         sortType = "artist";
         removeSurveyInfo();
-        addTempGlyphs();
+        addGlyphs();
     }
+
 
     /**
      * Sorts the songs by song title and displays on window
+     * 
      * @param titleButton
      */
     public void clickedSortTitle(Button titleButton) {
@@ -611,12 +649,14 @@ public class GUIWindow {
         updateArtists();
         sortType = "title";
         removeSurveyInfo();
-        addTempGlyphs();
-       
+        addGlyphs();
+
     }
+
 
     /**
      * Sorts the songs by genre and displays on window
+     * 
      * @param genreButton
      */
     public void clickedSortGenre(Button genreButton) {
@@ -625,10 +665,13 @@ public class GUIWindow {
         updateGenre();
         sortType = "genre";
         removeSurveyInfo();
-        addTempGlyphs();
+        addGlyphs();
     }
+
+
     /**
      * Sorts the songs by year and displays on window
+     * 
      * @param yearButton
      */
     public void clickedSortYear(Button yearButton) {
@@ -637,20 +680,11 @@ public class GUIWindow {
         updateYear();
         sortType = "year";
         removeSurveyInfo();
-        addTempGlyphs();
+        addGlyphs();
     }
 
     // Other (helper) methods.....................................
-    /**
-     * TODO
-     */
-    public void refresh() {
-        removeSurveyInfo();
-        updateTitles();
-        updateArtists();
-        addTempGlyphs();
-        // updateBottom();
-    }
+
 
     /**
      * TODO removes the glyphs from the window
@@ -661,7 +695,5 @@ public class GUIWindow {
             heard[i].remove();
         }
     }
-    
-    
 
 }
