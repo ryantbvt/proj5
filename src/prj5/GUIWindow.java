@@ -197,8 +197,8 @@ public class GUIWindow {
         category4.setBackgroundColor(Color.WHITE);
 
         // set foreground colors
-        category1.setForegroundColor(Color.BLUE);
-        category2.setForegroundColor(Color.MAGENTA);
+        category1.setForegroundColor(Color.MAGENTA);
+        category2.setForegroundColor(Color.BLUE);
         category3.setForegroundColor(Color.ORANGE);
         category4.setForegroundColor(Color.GREEN);
 

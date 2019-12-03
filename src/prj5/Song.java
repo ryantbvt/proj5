@@ -408,7 +408,7 @@ public class Song {
         }
         
         else if (type.equals("United States "
-                + "(other than Southeast or Northwest")) {
+                + "(other than Southeast or Northwest)")) {
             if (heard == 1) {
                 regionHeard[2][1]++;
             } // checks yes or no
@@ -489,7 +489,7 @@ public class Song {
             }
         }
         
-        else if (type.equals("CMDA")) {
+        else if (type.equals("Math or CMDA")) {
             if (heard == 1) {
                 majorHeard[2][1]++;
             } // checks yes or no
