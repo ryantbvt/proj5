@@ -44,6 +44,13 @@ public class GUIWindow {
     private Button repRegion;
 
     // add linked list
+    
+    // legend textShape fields
+    private TextShape legendTitle;
+    private TextShape category1;
+    private TextShape category2;
+    private TextShape category3;
+    private TextShape category4;
 
 // Constructor................................................
 
@@ -56,20 +63,16 @@ public class GUIWindow {
      */
     public GUIWindow() {
         window = new Window();
-        window.setTitle("Project");
+        window.setTitle("Project 5");
 
         createButtons();
-
-        // addGlyphs();
 
         addTempGlyphs();
         addPoles();
 
+        createLegendText();
         addLegend();
 
-        // addLegend();
-
-        int xPole = 125;
     }
 
 // Methods....................................................
@@ -180,7 +183,7 @@ public class GUIWindow {
     }
 
     public void addLegend() {
-        updateLegendText("hobby");
+        //updateLegendText("hobby");
         addLegendBox();
     }
     
@@ -216,21 +219,21 @@ public class GUIWindow {
      * 
      * @param String "category" will either be: "hobby", "major", or "region"
      */
-    public void updateLegendText(String category) {
+    public void createLegendText() {
         int x = 850;
         int y = 250;
 
         // Legend Title -- based on category
-        TextShape legendTitle = new TextShape(x + 9, y + 5, "Category Legend");
+        legendTitle = new TextShape(x + 9, y + 5, "Category Legend");
 
         // 4 categories
-        TextShape category1 = new TextShape(x + 10, y + 25, "Read");
-        TextShape category2 = new TextShape(x + 10, y + 45, "Art");
-        TextShape category3 = new TextShape(x + 10, y + 65, "Sports");
-        TextShape category4 = new TextShape(x + 10, y + 85, "Music");
+        category1 = new TextShape(x + 10, y + 25, "Read");
+        category2 = new TextShape(x + 10, y + 45, "Art");
+        category3 = new TextShape(x + 10, y + 65, "Sports");
+        category4 = new TextShape(x + 10, y + 85, "Music");
 
         // Song Title
-        TextShape songTitle = new TextShape(x + 25, y + 150, "Song Title");
+        TextShape songTitle = new TextShape(x + 25, y + 150, "Song Title"); // TODO
         
         // set background colors
         legendTitle.setBackgroundColor(Color.WHITE);
@@ -238,7 +241,8 @@ public class GUIWindow {
         category2.setBackgroundColor(Color.WHITE);
         category3.setBackgroundColor(Color.WHITE);
         category4.setBackgroundColor(Color.WHITE);
-        songTitle.setBackgroundColor(Color.WHITE);
+        
+        songTitle.setBackgroundColor(Color.WHITE); // TODO
 
         // set foreground colors
         category1.setForegroundColor(Color.BLUE);
@@ -249,12 +253,14 @@ public class GUIWindow {
         
         // add shapes to window
         window.addShape(legendTitle);
-        window.addShape(songTitle);
         window.addShape(category1);
         window.addShape(category2);
         window.addShape(category3);
         window.addShape(category4);
-
+        window.addShape(songTitle);
+        }
+    
+    public void updateLegendText(String category) {
         if (category == "hobby") {
             legendTitle.setText("Hobby Legend");
             category1.setText("Read");
@@ -274,9 +280,8 @@ public class GUIWindow {
             legendTitle.setText("Region Legend");
             category1.setText("Northeast US");
             category2.setText("Southeast US");
-            category3.setText("the rest of US");
-            category4.setText("outside the US");
-
+            category3.setText("The rest of US");
+            category4.setText("Outside the US");
         }
     }
 
@@ -330,6 +335,21 @@ public class GUIWindow {
         // use getX() and getY() to get position of poles for glyph calculations
 
     }
+    
+    public void clickedRepHobby(Button button) {
+        updateLegendText("hobby");
+    }
+    
+    public void clickedRepMajor(Button button) {
+        updateLegendText("major");
+    }
+    
+    public void clickedRepRegion(Button button) {
+        updateLegendText("region");
+    }
+    
+    
+    
 
     /**
      * Quit button, when clicked, closes the window
