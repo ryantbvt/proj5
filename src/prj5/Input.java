@@ -35,8 +35,8 @@ public class Input {
         }
 
         else {
-            GUIWindow display = new GUIWindow("SongList2018HalfSongs.csv",
-                "MusicSurveyData2018HolesHalf.csv");
+            GUIWindow display = new GUIWindow("SongList2019F.csv",
+                "MusicSurveyData2019F.csv");
         }
     }
 

@@ -88,6 +88,7 @@ public class DataSolver {
         
         Scanner dataScanner = new Scanner(new File(dataFile));
         
+        dataScanner.nextLine();
         while (dataScanner.hasNextLine()) {
             String line = dataScanner.nextLine();
             String[] split = line.split(",");

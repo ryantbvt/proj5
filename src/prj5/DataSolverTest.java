@@ -144,7 +144,10 @@ public class DataSolverTest extends TestCase {
         try {
             StudentList list 
                 = solver.readDataFile("MusicSurveyData2018HolesHalf.csv");
-            assertEquals(18, list.size());
+            assertEquals(17, list.size());
+            StudentList list2 =
+                    solver.readDataFile("MusicSurveyData2019F.csv");
+            assertEquals(267, list2.size());
         } 
         
         catch (FileNotFoundException e) {
